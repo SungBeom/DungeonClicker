@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239453403279168655}
   - component: {fileID: 1239453403279168652}
-  - component: {fileID: 7434014925252429386}
+  - component: {fileID: 4526957626032666657}
   m_Layer: 5
   m_Name: Health Slider
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7434014925252429386
+--- !u!114 &4526957626032666657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52eb892e04cd7ea42b24f00a8fcb90e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 30
 --- !u!1 &1239453403659942747
 GameObject:
   m_ObjectHideFlags: 0

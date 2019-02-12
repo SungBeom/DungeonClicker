@@ -8,7 +8,7 @@ public class EnemyMove : MonoBehaviour
     // 부딪힌 다음 튕겨나오는 것을 구현해야함
     void Update()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.right *-10f);  
+        GetComponent<Rigidbody2D>().AddForce(transform.right *-10f);
     }
 
     /*void OnCollisionEnter(Collision col)
@@ -23,6 +23,7 @@ public class EnemyMove : MonoBehaviour
         //col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<Slider>().value -= 10;
         //col.transform.GetComponent<HpControl>().GainDamage(30);
         col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
+        //col.gameObject.transform.GetComponent<HpControl>().GainDamage(30);
     }
 
     /*void OnControllerColliderHit(ControllerColliderHit hit)

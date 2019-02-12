@@ -20,5 +20,10 @@ public class HpControl : MonoBehaviour
 
         myHp.value = hp;
         //hpUI.value = hp;
+        if(hp <= 0)
+        {
+            gameObject.transform.root.GetComponent<Animation>().Play("Die");
+            Destroy(gameObject);
+        }
     }
 }
