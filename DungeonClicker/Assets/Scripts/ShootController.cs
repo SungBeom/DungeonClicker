@@ -21,7 +21,7 @@ public class ShootController : MonoBehaviour
     {
         if (gameObject != null)
         {
-            Debug.Log("Test");
+            //Debug.Log("Test");
             //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(1f, 0f) * 100f);
             //gameObject.GetComponent<Rigidbody2D>().MovePosition(new Vector2(1f, 0f) * 100f);
             gameObject.transform.Translate(Vector3.right / 10.0f);

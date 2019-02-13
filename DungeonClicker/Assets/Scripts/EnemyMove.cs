@@ -11,24 +11,13 @@ public class EnemyMove : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(transform.right *-10f);
     }
 
-    /*void OnCollisionEnter(Collision col)
-    {
-        Debug.Log(col);
-        col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<Slider>().value -= 10;
-    }*/
-
     void OnCollisionEnter2D(Collision2D col)
     {
-        //Debug.Log(col);
-        //col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<Slider>().value -= 10;
-        //col.transform.GetComponent<HpControl>().GainDamage(30);
-        col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
-        //col.gameObject.transform.GetComponent<HpControl>().GainDamage(30);
+        if (col.gameObject.tag == "Ground"){ return; }
+        else
+        {
+            //col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
+            GetComponent<Rigidbody2D>().AddForce(transform.right * 300f);
+        }
     }
-
-    /*void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        Debug.Log(hit);
-        hit.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<Slider>().value -= 10;
-    }*/
 }
