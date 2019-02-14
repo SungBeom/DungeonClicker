@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &65524814 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1901336037, guid: 7b53eebc820ed4d4da749fe76c4da2a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1150016171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123845062
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16257631f0d69e743a91e8d0b9c8baf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: []
+  stage:
+  - monsterPrefab:
+    - {fileID: 2099044536}
+    monsterCount: 03000000
 --- !u!1 &384625601
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00003154081, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.000013836934, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &421985856
@@ -1181,6 +1190,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1901336038, guid: 0ef8192bc1f5b2a4896f4a8844ae52ef, type: 3}
+      propertyPath: myHp
+      value: 
+      objectReference: {fileID: 2041924403}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef8192bc1f5b2a4896f4a8844ae52ef, type: 3}
 --- !u!1 &535250767
@@ -1534,7 +1547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00003431722, y: 100.00003}
+  m_AnchoredPosition: {x: -0.000020977664, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &612332044
@@ -2497,6 +2510,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1901336038, guid: 7b53eebc820ed4d4da749fe76c4da2a7, type: 3}
+      propertyPath: myHp
+      value: 
+      objectReference: {fileID: 65524814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b53eebc820ed4d4da749fe76c4da2a7, type: 3}
 --- !u!1 &1164817612
@@ -2864,6 +2881,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!224 &1352862596 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1239453403279168655, guid: ce0df7df5c783814e97a5c15f9a07348,
+    type: 3}
+  m_PrefabInstance: {fileID: 1450171693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1450171693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2956,6 +2979,11 @@ PrefabInstance:
       propertyPath: hp
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4526957626032666657, guid: ce0df7df5c783814e97a5c15f9a07348,
+        type: 3}
+      propertyPath: myHp
+      value: 
+      objectReference: {fileID: 1352862596}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce0df7df5c783814e97a5c15f9a07348, type: 3}
 --- !u!1 &1499001878
@@ -4486,6 +4514,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976081322}
   m_CullTransparentMesh: 0
+--- !u!224 &2041924403 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1901336037, guid: 0ef8192bc1f5b2a4896f4a8844ae52ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 523296572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2076591748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,7 +4849,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099044536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52eb892e04cd7ea42b24f00a8fcb90e4, type: 3}
   m_Name: 

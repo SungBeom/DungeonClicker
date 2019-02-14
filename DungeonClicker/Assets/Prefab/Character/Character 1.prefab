@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 30
+  myHp: {fileID: 0}
+  hpUI: {fileID: 0}
 --- !u!1 &1239453403659942747
 GameObject:
   m_ObjectHideFlags: 0
