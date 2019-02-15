@@ -14,6 +14,11 @@ public class MonsterPool : MonoBehaviour
 {
     public Stage[] stage;
 
+    void Start()
+    {
+
+    }
+
     [System.Serializable]
     public class Stage
     {

@@ -13,7 +13,6 @@ public class HpControl : MonoBehaviour
     public void Start()
     {
         MyHp = myHp.GetComponent<Slider>();
-        Debug.Log(MyHp);
         MyHp.value = hp;
         //hpUI.value = hp;
     }
@@ -21,6 +20,7 @@ public class HpControl : MonoBehaviour
     public void GainDamage(float damage)
     {
         hp -= damage;
+        Debug.Log(MyHp);
         MyHp.value = hp;
         //hpUI.value = hp;
 

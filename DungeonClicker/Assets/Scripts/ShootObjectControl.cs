@@ -8,8 +8,10 @@ public class ShootObjectControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        col.gameObject.transform.GetComponent<HpControl>().GainDamage(damage);
-        Debug.Log(gameObject);
+        Debug.Log("명중");
+        //Debug.Log(col.gameObject.transform);
+        col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(damage);
         //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
