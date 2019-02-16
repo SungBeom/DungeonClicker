@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyMove : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    // 부딪힌 다음 튕겨나오는 것을 구현해야함
+    public float Damage;
+    public float Hp;
+    public float Speed;
+
     void Update()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.right *-10f);
+        GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Ground") { return; }
-        else if(col.gameObject.tag == "Player")
+        else if (col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
+            col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(Damage);
             GetComponent<Rigidbody2D>().AddForce(transform.right * 300f);
         }
         else

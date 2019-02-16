@@ -9,6 +9,7 @@ public class HpControl : MonoBehaviour
     public Transform myHp; //  자신의 슬라이더
     Slider MyHp;
     public Slider hpUI; //  좌측 상단 표시용 슬라이더
+    public GameObject characterController;
     
     public void Start()
     {

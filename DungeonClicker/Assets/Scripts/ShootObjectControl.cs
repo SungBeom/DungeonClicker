@@ -14,4 +14,9 @@ public class ShootObjectControl : MonoBehaviour
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }
