@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     //public Queue<GameObject> EnemyPool;
     public GameObject SpawnPosition;
     public int selected = 0;
+    GameObject gameObject;
 
     /*void Start()                          // 일단 풀을 쓰지않고 복제 형식으로 구현해 보자
     {
@@ -38,15 +39,17 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        
+        StartCoroutine(MakeEnemy());
     }
 
     IEnumerator MakeEnemy()
     {
-        for (int i = 0; i < stage[selected].NormalEnemy.Length; i++)
+        Debug.Log(stage[selected].NormalEnemyCount[0]);
+        for (int i = 0; i < stage[selected].NormalEnemyCount[0]; i++)
         {
+            gameObject = Instantiate(stage[selected].NormalEnemy[0],SpawnPosition.transform.position, SpawnPosition.transform.rotation);
+            gameObject.SetActive(true);
             yield return new WaitForSeconds(1.0f);
-            Instantiate(stage[selected].NormalEnemy[i]);
         }
     }
 

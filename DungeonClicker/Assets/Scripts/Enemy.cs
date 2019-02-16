@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     public float Hp;
     public float Speed;
 
+    void Start()
+    {
+        gameObject.SetActive(true);    
+    }
     void Update()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed);
