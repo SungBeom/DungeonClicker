@@ -10,25 +10,40 @@ public class HpControl : MonoBehaviour
     Slider MyHp;
     public Slider hpUI; //  좌측 상단 표시용 슬라이더
     public GameObject characterController;
+    public Text GameOver;
     
     public void Start()
     {
         MyHp = myHp.GetComponent<Slider>();
         MyHp.value = hp;
-        //hpUI.value = hp;
     }
 
     public void GainDamage(float damage)
     {
         hp -= damage;
-        Debug.Log(MyHp);
         MyHp.value = hp;
-        //hpUI.value = hp;
 
-        if(hp <= 0)
+       if(hp <= 0)
         {
-            gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");   // 이 부분 에러남
+            CharacterController.characterCount--;
+            gameObject.transform.root.gameObject.layer = 11;
+            if(CharacterController.characterCount == 0)
+            {
+                GameOver.gameObject.SetActive(true);
+                gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");
+                StartCoroutine(Delay());
+                Destroy(gameObject.transform.root.gameObject, 0.5f);
+            }
+
+            characterController.GetComponent<CharacterController>().DeathChange();
+            gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.485f);
+        Time.timeScale = 0.0f;
     }
 }

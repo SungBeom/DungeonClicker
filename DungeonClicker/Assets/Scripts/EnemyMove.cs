@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyMove : MonoBehaviour
 {
-    // 부딪힌 다음 튕겨나오는 것을 구현해야함
     void Update()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right *-10f);
@@ -25,7 +24,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    void OnBecameInvisible()    // 이게 왜 적용이 안될까
+    void OnBecameInvisible()
     {
         Destroy(gameObject);
     }

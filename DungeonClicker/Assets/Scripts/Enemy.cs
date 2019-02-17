@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public float Damage;
     public float Hp;
     public float Speed;
+    public float Gold;
+    public float AntiElasticity;
 
     void Start()
     {
@@ -23,10 +25,12 @@ public class Enemy : MonoBehaviour
         else if (col.gameObject.tag == "Player")
         {
             col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(Damage);
-            GetComponent<Rigidbody2D>().AddForce(transform.right * 300f);
+            GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
         }
+        else if(col.gameObject.tag == "Boss") { return; }
         else
         {
+            GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
             return;
         }
     }

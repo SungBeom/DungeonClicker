@@ -44,13 +44,14 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator MakeEnemy()
     {
-        Debug.Log(stage[selected].NormalEnemyCount[0]);
         for (int i = 0; i < stage[selected].NormalEnemyCount[0]; i++)
         {
             gameObject = Instantiate(stage[selected].NormalEnemy[0],SpawnPosition.transform.position, SpawnPosition.transform.rotation);
             gameObject.SetActive(true);
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
         }
+        gameObject = Instantiate(stage[selected].Boss, SpawnPosition.transform.position, SpawnPosition.transform.rotation);
+        gameObject.SetActive(true);
     }
 
     [System.Serializable]
