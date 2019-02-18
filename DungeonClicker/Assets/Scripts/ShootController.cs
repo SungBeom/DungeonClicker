@@ -37,7 +37,7 @@ public class ShootController : MonoBehaviour
         UseSkil = false;
         yield return new WaitForSeconds(1.0f);
         gameObject = Instantiate(shoot.shootPrefab[CharacterController.selected], transform.position, transform.rotation);
-        Destroy(gameObject, 1.0f);
+        Destroy(gameObject, 0.65f);
         UseSkil = true;
     }
 
