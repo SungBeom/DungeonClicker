@@ -15,9 +15,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        //Instantiate(character[0].character, transform.position, transform.rotation);
         character[selected].character.SetActive(true);
-        //ani = gameObject.GetComponent<Animation>();
     }
 
     public void Change()
@@ -117,6 +115,5 @@ public class CharacterController : MonoBehaviour
     public class Character
     {
         public GameObject character;
-        public AnimationClip[] characterSkil;
     }
 }
