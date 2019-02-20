@@ -12,11 +12,12 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        gameObject.SetActive(true);    
+        gameObject.SetActive(true);
     }
     void Update()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed);
+        GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale);
+        //transform.Translate(new Vector2(-1, 0) * Speed *Time.timeScale);
     }
 
     void OnCollisionEnter2D(Collision2D col)
