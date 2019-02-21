@@ -53,6 +53,7 @@ public class CharacterController : MonoBehaviour
     public void Attack()
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
+        character[temp].Weapon.SetActive(true);
     }
 
     public void Shield()
@@ -115,5 +116,6 @@ public class CharacterController : MonoBehaviour
     public class Character
     {
         public GameObject character;
+        public GameObject Weapon;
     }
 }
