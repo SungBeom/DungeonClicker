@@ -54,6 +54,7 @@ public class CharacterController : MonoBehaviour
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
         character[temp].Weapon.SetActive(true);
+        character[temp].Weapon.SetActive(false);
     }
 
     public void Shield()

@@ -8,7 +8,7 @@ public class BossHp : MonoBehaviour
     public float hp;
     Slider MyHp;
     public Slider hpUI; //  좌측 상단 표시용 슬라이더
-    public Text StageClear;
+    public Transform StageClear;
 
     public void Start()
     {
@@ -25,7 +25,7 @@ public class BossHp : MonoBehaviour
         if (hp <= 0)
         {
             StageClear.gameObject.SetActive(true);
-            gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
+            //gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
             StartCoroutine(Delay());
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
