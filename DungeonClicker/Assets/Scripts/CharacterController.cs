@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
     public int skilIndex;
     public static int characterCount = 3;
     int temp = 0;
-    AnimationClip ani;
+    //AnimationClip ani;
 
     void Start()
     {
@@ -80,7 +80,7 @@ public class CharacterController : MonoBehaviour
     // 위에 구현막혀서 임시 구현
     public void Skil_1()
     {
-        character[temp].character.GetComponent<Animator>().Play("Skill_1");
+        character[temp].character.GetComponent<Animator>().Play("Skil_1");
     }
     public void Skil_2()
     {
@@ -104,7 +104,7 @@ public class CharacterController : MonoBehaviour
     IEnumerator ShieldTime()
     {
         character[temp].character.transform.tag = "Enemy";
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         character[temp].character.transform.tag = "Player";
     }
 

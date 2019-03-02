@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52eb892e04cd7ea42b24f00a8fcb90e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 400
+  hp: 1000
   myHp: {fileID: 0}
   hpUI: {fileID: 0}
   characterController: {fileID: 0}

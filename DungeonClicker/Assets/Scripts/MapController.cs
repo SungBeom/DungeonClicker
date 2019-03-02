@@ -8,9 +8,11 @@ public class MapController : MonoBehaviour
     public Map[] map;
     Renderer[] renderer = new Renderer[3];  // 3개의 랜더러가 필요함 원경, 중경, 근경
     public int selected = 0;    // 맵 선택에 따라서 값이 바뀜
+    int temp;
 
     void Start()
     {
+        temp = selected;
         map[selected].mapObject.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
@@ -22,9 +24,24 @@ public class MapController : MonoBehaviour
     {
         // for 문을 통해 컨트룰 할 수 있게 변경하자
         map[selected].offset = Time.time * map[selected].speed[selected];
-        renderer[0].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[0], 0));
+        for(int i = 0; i < map[selected].speed.Length; i++)
+        {
+            renderer[i].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[i], 0));
+        }
+        /*renderer[0].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[0], 0));
         renderer[1].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[1], 0));
-        renderer[2].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[2], 0));
+        renderer[2].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[2], 0));*/
+    }
+
+    void ChangeMap()
+    {
+        map[temp].mapObject.SetActive(false);
+        map[selected].mapObject.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            renderer[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
+        }
+
     }
 
     [System.Serializable]
