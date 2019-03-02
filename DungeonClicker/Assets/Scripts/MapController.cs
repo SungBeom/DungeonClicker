@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MapController : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class MapController : MonoBehaviour
         renderer[2].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[2], 0));*/
     }
 
-    void ChangeMap()
+    public void ChangeMap()
     {
         map[temp].mapObject.SetActive(false);
         map[selected].mapObject.SetActive(true);
@@ -41,7 +42,12 @@ public class MapController : MonoBehaviour
         {
             renderer[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
         }
+    }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene("Dungeon");
+        Time.timeScale = 1.0f;
     }
 
     [System.Serializable]

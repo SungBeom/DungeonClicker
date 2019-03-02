@@ -15,6 +15,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        characterCount = 3;
         character[selected].character.SetActive(true);
     }
 
