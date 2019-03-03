@@ -36,6 +36,7 @@ public class MapController : MonoBehaviour
 
     public void ChangeMap()
     {
+        ++selected; // 맵 넘어가는지 확인하기 위해 임시로 넣은 값임 실제에서는 밖에서 선택한 selected 값으로 맵이 바뀔것
         map[temp].mapObject.SetActive(false);
         map[selected].mapObject.SetActive(true);
         for (int i = 0; i < 3; i++)
