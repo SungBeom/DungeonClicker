@@ -54,8 +54,7 @@ public class CharacterController : MonoBehaviour
     public void Attack()
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
-        character[temp].Weapon.SetActive(true);
-        character[temp].Weapon.SetActive(false);
+        StartCoroutine(AttackDelay(0.3f));
     }
 
     public void Shield()
@@ -102,6 +101,13 @@ public class CharacterController : MonoBehaviour
         DeathChange();
     }
 
+    IEnumerator AttackDelay(float time)
+    {
+        character[temp].Weapon.SetActive(true);
+        yield return new WaitForSeconds(time);
+        character[temp].Weapon.SetActive(false);
+    }
+
     IEnumerator ShieldTime()
     {
         character[temp].character.transform.tag = "Enemy";
@@ -118,6 +124,6 @@ public class CharacterController : MonoBehaviour
     public class Character
     {
         public GameObject character;
-        public GameObject Weapon;
+        public GameObject Weapon;   
     }
 }
