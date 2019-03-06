@@ -51,7 +51,7 @@ public class CharacterController : MonoBehaviour
     }
 
     //캐릭터 클래스안에 3개 버튼 스킬 및, 캐릭터 별 내장 스킬을 집어 넣고 인덱스를 통해 접근하여 스킬을 실행시키자
-    public void Attack()
+    public void Attack()    // 공격시 근접 무기라면 그냥 공격을 하고 원거리 무기라면 instantiate를 사용하여 발사시키는 형식으로 함수만들것
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
         StartCoroutine(AttackDelay(0.3f));
