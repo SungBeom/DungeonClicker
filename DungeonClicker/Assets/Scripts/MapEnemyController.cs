@@ -56,11 +56,15 @@ public class MapEnemyController : MonoBehaviour
 
     IEnumerator MakeEnemy()
     {
-        for (int i = 0; i < map[selected].NormalEnemyCount[0]; i++)
+        for (int i = 0; i < map[selected].NormalEnemy.Length; i++)
         {
-            gameObject = Instantiate(map[selected].NormalEnemy[0], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
-            gameObject.SetActive(true);
-            yield return new WaitForSeconds(2.0f);
+            Debug.Log(map[selected].NormalEnemy.Length);
+            for (int j = 0; j < map[selected].NormalEnemyCount[i]; j++)
+            {
+                gameObject = Instantiate(map[selected].NormalEnemy[i], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
+                gameObject.SetActive(true);
+                yield return new WaitForSeconds(2.0f);
+            }
         }
         gameObject = Instantiate(map[selected].Boss, SpawnPosition.transform.position, SpawnPosition.transform.rotation);
         gameObject.SetActive(true);
