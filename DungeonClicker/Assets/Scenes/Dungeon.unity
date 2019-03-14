@@ -1503,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000033212214, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.000031663298, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -1829,8 +1829,22 @@ MonoBehaviour:
     EnemyDamage:
     - 20
     NormalEnemyCount:
-    - 5
+    - 2
+    - 2
+    Boss: {fileID: 922485978}
+    BossDamage: 10
+  - mapObject: {fileID: 1645626335}
+    speed:
+    - 0.9
+    - 0.6
+    - 0.3
+    offset: 0
+    NormalEnemy:
+    - {fileID: 2099044536}
+    EnemyDamage:
     - 10
+    NormalEnemyCount:
+    - 2
     Boss: {fileID: 922485978}
     BossDamage: 10
   selected: 0
@@ -2516,8 +2530,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1054176023}
-        m_MethodName: Skil
-        m_Mode: 3
+        m_MethodName: Skil_3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3781,7 +3795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000118174924, y: 100.00003}
+  m_AnchoredPosition: {x: 0.00000088441766, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714
@@ -4706,9 +4720,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 670280152}
+      - m_Target: {fileID: 506041851}
         m_MethodName: ChangeMap
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1560251633}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

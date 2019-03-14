@@ -8,10 +8,10 @@ public class MapEnemyController : MonoBehaviour
 {
     public Map[] map;
     Renderer[] renderer = new Renderer[3];  // 3개의 랜더러가 필요함 원경, 중경, 근경
-    public int selected = 0;    // 맵 선택에 따라서 값이 바뀜
+    public static int selected = 0;    // 맵 선택에 따라서 값이 바뀜
     GameObject gameObject;
     public GameObject SpawnPosition;
-    int temp;
+    static int temp;
 
     void Start()
     {
@@ -39,6 +39,7 @@ public class MapEnemyController : MonoBehaviour
 
     public void ChangeMap()
     {
+        Time.timeScale = 1.0f;
         ++selected; // 맵 넘어가는지 확인하기 위해 임시로 넣은 값임 실제에서는 밖에서 선택한 selected 값으로 맵이 바뀔것
         map[temp].mapObject.SetActive(false);
         map[selected].mapObject.SetActive(true);
@@ -46,12 +47,21 @@ public class MapEnemyController : MonoBehaviour
         {
             renderer[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
         }
+        StartCoroutine(MakeEnemy());
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("Dungeon");
+        /*SceneManager.LoadScene("Dungeon");*/
         Time.timeScale = 1.0f;
+        temp = selected;
+        map[temp].mapObject.SetActive(false);
+        map[selected].mapObject.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            renderer[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
+        }
+        StartCoroutine(MakeEnemy());
     }
 
     IEnumerator MakeEnemy()
