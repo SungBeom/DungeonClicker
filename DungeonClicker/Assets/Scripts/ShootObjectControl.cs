@@ -11,7 +11,7 @@ public class ShootObjectControl : MonoBehaviour
         if (col.transform.tag == "Enemy")
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else
         {
@@ -22,6 +22,6 @@ public class ShootObjectControl : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 }

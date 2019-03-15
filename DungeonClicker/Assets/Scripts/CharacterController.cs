@@ -11,12 +11,18 @@ public class CharacterController : MonoBehaviour
     public int skilIndex;
     public static int characterCount = 3;
     int temp = 0;
+    int SkilNum = 0;
     //AnimationClip ani;
 
     void Start()
     {
         characterCount = 3;
         character[selected].character.SetActive(true);
+        SkilNum = character[selected].character.transform.childCount;
+        for(int i = 1; i < SkilNum; i++)
+        {
+            character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        }
     }
 
     public void Change()
@@ -36,6 +42,7 @@ public class CharacterController : MonoBehaviour
     {
         for(int i = 0; i < character.Length; i++)
         {
+            //리스트 사용 방법으로 변경 가능하면 바꿀것
             //character[1].character.SetActive(true);   // 이렇게 하면 되긴 하는데 의미가 없다 로그를 찍어보자
             //Debug.Log(character[i].character.gameObject);
 
@@ -81,18 +88,18 @@ public class CharacterController : MonoBehaviour
     public void Skil_1()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_1");
+        character[selected].character.transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        
     }
     public void Skil_2()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_2");
+        character[selected].character.transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
     }
     public void Skil_3()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_3");
-    }
-    public void Skil_4()
-    {
-        character[temp].character.GetComponent<Animator>().Play("Skil_4");
+        character[temp].character.transform.Find("Skil_3").GetComponent<Animator>().Play("Shoot");
     }
 
     IEnumerator Delay()
@@ -103,9 +110,9 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator AttackDelay(float time)
     {
-        character[temp].Weapon.SetActive(true);
+        character[selected].character.transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
-        character[temp].Weapon.SetActive(false);
+        character[selected].character.transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
     IEnumerator ShieldTime()
@@ -123,7 +130,6 @@ public class CharacterController : MonoBehaviour
     [System.Serializable]
     public class Character
     {
-        public GameObject character;
-        public GameObject Weapon;   
+        public GameObject character; 
     }
 }
