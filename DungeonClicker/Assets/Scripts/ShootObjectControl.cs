@@ -16,7 +16,7 @@ public class ShootObjectControl : MonoBehaviour
         else
         {
             col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<BossHp>().GainDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
