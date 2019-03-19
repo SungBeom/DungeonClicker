@@ -9,6 +9,15 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
     public Manage manage;
+
+    int gold;
+    public int Gold
+    {
+        get { return gold; }
+        set { gold = value; }
+    }
+    int Food;
+    int Jewelry;
     
     void Awake()
     {
