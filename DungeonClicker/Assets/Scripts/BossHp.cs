@@ -24,6 +24,7 @@ public class BossHp : MonoBehaviour
 
         if (hp <= 0)
         {
+            GameManager.Instance.Gold += 100;
             StageClear.gameObject.SetActive(true);
             //gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
             StartCoroutine(Delay());
