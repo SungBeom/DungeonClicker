@@ -39,7 +39,12 @@ public class CharacterController : MonoBehaviour
     public void Select(int num)
     {
         selected = num;
-        Change();
+        if (selected != temp)
+        {
+            Change();
+        }
+        //selected = num;
+        //Change();
     }
     
     public void DeathChange()
@@ -57,6 +62,7 @@ public class CharacterController : MonoBehaviour
 
             character[i].character.SetActive(true);
             temp = i;
+            selected = i;
             break;
         }
     }
