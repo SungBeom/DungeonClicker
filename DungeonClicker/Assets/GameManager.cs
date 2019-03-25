@@ -16,8 +16,18 @@ public class GameManager : MonoBehaviour
         get { return gold; }
         set { gold = value; }
     }
-    int Food;
-    int Jewelry;
+    int food;
+    public int Food
+    {
+        get { return food; }
+        set { food = value; }
+    }
+    int jewelry;
+    public int Jewelry
+    {
+        get { return jewelry; }
+        set { jewelry = value; }
+    }
     
     void Awake()
     {
@@ -43,5 +53,14 @@ public class GameManager : MonoBehaviour
     public class Manage
     {
         public GameObject[] controller;
+    }
+
+    [System.Serializable]
+    public class CharacterList
+    {
+        public GameObject CharacterPrefab;
+        public float AttackDamage;
+        public float[] SkilDamage;
+        public float Hp;
     }
 }
