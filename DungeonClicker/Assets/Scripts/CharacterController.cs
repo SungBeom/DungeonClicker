@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
     //public Animator animator;
 
     public Character[] character;
+    public ButtonControll Btn;
     public static int selected = 0;
     public int skilIndex;
     public static int characterCount = 3;
@@ -23,6 +25,7 @@ public class CharacterController : MonoBehaviour
         {
             character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         }
+        //Btn.Board.transform.GetChild(2).GetComponent<Button>().gameObject.SetActive(false);
     }
 
     public void Change()
@@ -55,14 +58,25 @@ public class CharacterController : MonoBehaviour
             //character[1].character.SetActive(true);   // 이렇게 하면 되긴 하는데 의미가 없다 로그를 찍어보자
             //Debug.Log(character[i].character.gameObject);
 
+            for(int j = 0; j<character.Length; j++)
+            {
+                if (character[j].character.gameObject == null || character[j].character.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().hp <= 0)
+                {
+                    //Btn.Board.transform.GetChild(j).GetComponent<Button>().gameObject.SetActive(false);
+                    Btn.Board.transform.GetChild(j).GetComponent<Button>().interactable = false;
+                }
+            }
+
             if (character[i].character.gameObject == null || character[i].character.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().hp <= 0)
             {
+                //Debug.Log(Btn.Board.transform.GetChild(i).GetComponent<Button>().gameObject);
+                //Btn.Board.transform.GetChild(i).GetComponent<Button>().gameObject.SetActive(false);
                 continue;
             }
 
             character[i].character.SetActive(true);
             temp = i;
-            selected = i;
+            //selected = i;
             break;
         }
     }
@@ -160,6 +174,12 @@ public class CharacterController : MonoBehaviour
     [System.Serializable]
     public class Character
     {
-        public GameObject character; 
+        public GameObject character;
+    }
+
+    [System.Serializable]
+    public class ButtonControll
+    {
+        public GameObject Board;
     }
 }

@@ -12,7 +12,7 @@ public class WeaponController : MonoBehaviour
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
         }
-        else
+        else if(col.transform.tag == "Boss")
         {
             col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<BossHp>().GainDamage(damage);
         }

@@ -19,7 +19,7 @@ public class BossHp : MonoBehaviour
     public void GainDamage(float damage)
     {
         hp -= damage;
-        Debug.Log(MyHp);
+        //Debug.Log(MyHp);
         MyHp.value = hp;
 
         if (hp <= 0)

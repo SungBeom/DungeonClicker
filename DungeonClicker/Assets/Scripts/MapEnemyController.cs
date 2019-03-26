@@ -68,7 +68,7 @@ public class MapEnemyController : MonoBehaviour
     {
         for (int i = 0; i < map[selected].NormalEnemy.Length; i++)
         {
-            Debug.Log(map[selected].NormalEnemy.Length);
+            //Debug.Log(map[selected].NormalEnemy.Length);
             for (int j = 0; j < map[selected].NormalEnemyCount[i]; j++)
             {
                 gameObject = Instantiate(map[selected].NormalEnemy[i], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
