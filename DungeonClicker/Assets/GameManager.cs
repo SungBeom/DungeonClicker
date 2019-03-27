@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    List<object> CharacterData = new List<object>();
     private static GameManager instance;
     public static GameManager Instance {
         get { return instance; }
     }
+
     public Manage manage;
+    public CharacterList[] characterList;
 
     int gold;
     public int Gold
@@ -47,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             manage.controller[i].gameObject.SetActive(true);
         }
+        CharacterData.Add(characterList[0]);
+        //characterList[0].AttackDamage = 100;
     }
 
     [System.Serializable]

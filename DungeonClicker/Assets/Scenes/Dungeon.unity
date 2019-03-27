@@ -145,6 +145,14 @@ MonoBehaviour:
     controller:
     - {fileID: 1054176021}
     - {fileID: 506041849}
+  characterList:
+  - CharacterPrefab: {fileID: 1794393016}
+    AttackDamage: 10
+    SkilDamage:
+    - 20
+    - 30
+    - 40
+    Hp: 100
 --- !u!4 &23504090
 Transform:
   m_ObjectHideFlags: 0
@@ -1493,7 +1501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000035077524, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.000013979077, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -3777,7 +3785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000036247682, y: 100.00003}
+  m_AnchoredPosition: {x: -0.0000010637923, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714
