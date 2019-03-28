@@ -50,8 +50,24 @@ public class GameManager : MonoBehaviour
         {
             manage.controller[i].gameObject.SetActive(true);
         }
+
+        // 리스트 값을 데이터베이스로 올리고 내리는 메소드가 필요 나중에 물어볼것
+        // 시작 시 리스트 값을 내려 받기
+        // 리스트의 인덱스를 이용하여 해당 값들이 변경 가능함을 확인하였음
         CharacterData.Add(characterList[0]);
         //characterList[0].AttackDamage = 100;
+    }
+
+    // 다른 씬으로 데이터를 보내기 위한 함수
+    public void SendInfo()
+    {
+
+    }
+
+    // 다른 씬에서 보낸 데이터를 받기위한 함수
+    public void ReceiveInfo()
+    {
+
     }
 
     [System.Serializable]
