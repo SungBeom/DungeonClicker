@@ -85,6 +85,7 @@ public class CharacterController : MonoBehaviour
     public void Attack()    // 공격시 근접 무기라면 그냥 공격을 하고 원거리 무기라면 instantiate를 사용하여 발사시키는 형식으로 함수만들것
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
+        //GameManager.Instance.characterList[0].Anim[4]
         StartCoroutine(AttackDelay(0.3f));
     }
 
