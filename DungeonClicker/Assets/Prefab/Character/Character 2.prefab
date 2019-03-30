@@ -114,8 +114,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3493916665184604098}
-  - component: {fileID: 1767427149478602659}
   - component: {fileID: 4643608998942790070}
+  - component: {fileID: 5534544047779069150}
   m_Layer: 0
   m_Name: Skil_3
   m_TagString: Untagged
@@ -138,18 +138,6 @@ Transform:
   m_Father: {fileID: 4369223014092274056}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1767427149478602659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953314257205338460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218afaab477393346a31345f0d637fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &4643608998942790070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,6 +164,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5534544047779069150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953314257205338460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1696623463519560526
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e92e3af4f90cfd4ca2edf688ff8a071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: 0
   character: {fileID: 0}
   AttackDamage: 0
   SkilDamage:

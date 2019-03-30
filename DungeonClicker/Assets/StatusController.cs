@@ -13,7 +13,7 @@ public class StatusController : MonoBehaviour
             instance = value;
         }
     }
-    public 
+
     int selected = CharacterController.selected;
     public Sprite character;
     public float AttackDamage;

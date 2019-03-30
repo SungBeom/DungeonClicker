@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().AttackDamage;
+        Debug.Log(gameObject.transform.root);
         //Debug.Log(damage);
         //float damage = StatusController.Instance.AttackDamage;
         if (col.transform.tag == "Enemy")

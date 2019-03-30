@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970311212918427947}
   - component: {fileID: 9067031498918874733}
-  - component: {fileID: 1089347436285747785}
+  - component: {fileID: 3628010011805151828}
   m_Layer: 0
   m_Name: Skil_2
   m_TagString: Untagged
@@ -400,7 +400,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87745637, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1089347436285747785
+--- !u!114 &3628010011805151828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3049689093600159524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3080335587930733850
@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344046145402323083}
   - component: {fileID: 1637965825833289543}
-  - component: {fileID: 8097499945348748903}
+  - component: {fileID: 8444933208151355191}
   m_Layer: 0
   m_Name: Skil_1
   m_TagString: Untagged
@@ -729,7 +729,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5582554, y: 0.3328166}
   m_EdgeRadius: 0
---- !u!114 &8097499945348748903
+--- !u!114 &8444933208151355191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4439627497243005533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4482874384051408519
@@ -784,7 +784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e92e3af4f90cfd4ca2edf688ff8a071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: 0
   character: {fileID: 0}
   AttackDamage: 0
   SkilDamage:
@@ -912,7 +911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5900323964058399568}
   - component: {fileID: 4822997822940328427}
-  - component: {fileID: 9132985234778045769}
+  - component: {fileID: 693828359862150148}
   m_Layer: 0
   m_Name: Skil_3
   m_TagString: Untagged
@@ -961,7 +960,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9132985234778045769
+--- !u!114 &693828359862150148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -970,6 +969,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5102197328277253699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218afaab477393346a31345f0d637fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
