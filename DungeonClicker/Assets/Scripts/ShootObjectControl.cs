@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ShootObjectControl : MonoBehaviour
 {
-    float damage = StatusController.Instance.SkilDamage[2];
+    //float damage = StatusController.Instance.SkilDamage[2];
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        float damage = StatusController.Instance.SkilDamage[2];
         if (col.transform.tag == "Enemy")
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);

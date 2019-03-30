@@ -22,6 +22,7 @@ public class SkillController : MonoBehaviour
     public void Selected(int num)
     {
         SkillSelected = num;
+        Debug.Log(SkillSelected);
         damage = StatusController.Instance.SkilDamage[SkillSelected];
     }
 }

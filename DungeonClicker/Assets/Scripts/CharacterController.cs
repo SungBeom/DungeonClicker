@@ -20,8 +20,8 @@ public class CharacterController : MonoBehaviour
     {
         characterCount = 3;
         character[selected].character.SetActive(true);
-        SkilNum = character[selected].character.transform.childCount;
-        for(int i = 1; i < SkilNum; i++)
+        //SkilNum = character[selected].character.transform.childCount;
+        for(int i = 1; i < 5; i++)
         {
             character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         }
@@ -76,7 +76,7 @@ public class CharacterController : MonoBehaviour
 
             character[i].character.SetActive(true);
             temp = i;
-            //selected = i;
+            selected = i;
             break;
         }
     }

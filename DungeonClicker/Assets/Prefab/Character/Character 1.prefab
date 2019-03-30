@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218afaab477393346a31345f0d637fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 200
 --- !u!1 &1239453402775522036
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +361,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1239453403279168655}
-  - {fileID: 8430209657988338894}
   m_Father: {fileID: 1239453404214748466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,6 +465,7 @@ Transform:
   - {fileID: 6672370742926576654}
   - {fileID: 559276031314538150}
   - {fileID: 7443794945757970609}
+  - {fileID: 8430209657988338894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -802,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218afaab477393346a31345f0d637fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
 --- !u!61 &4387035541994774482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -899,7 +897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 80
 --- !u!1 &6259682669553317284
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,11 +922,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6259682669553317284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -542.271, y: -959.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1239453404114865190}
-  m_RootOrder: 1
+  m_Father: {fileID: 1239453404214748466}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4348352259074147057
 MonoBehaviour:
@@ -943,6 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e92e3af4f90cfd4ca2edf688ff8a071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 2
   character: {fileID: 0}
   AttackDamage: 0
   SkilDamage:
@@ -1020,7 +1018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
 --- !u!1 &7064626206597864944
 GameObject:
   m_ObjectHideFlags: 0
