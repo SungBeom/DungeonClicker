@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class StatusController : MonoBehaviour
 {
+    private static StatusController instance;
+    public static StatusController Instance
+    {
+        get { return instance; }
+        set
+        {
+            instance = value;
+        }
+    }
+    public 
     int selected = CharacterController.selected;
     public Sprite character;
     public float AttackDamage;

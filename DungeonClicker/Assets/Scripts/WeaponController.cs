@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public float damage;
+    float damage = StatusController.Instance.AttackDamage;
 
     void OnCollisionEnter2D(Collision2D col)
     {

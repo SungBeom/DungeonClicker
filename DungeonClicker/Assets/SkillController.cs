@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootObjectControl : MonoBehaviour
+public class SkillController : MonoBehaviour
 {
-    float damage = StatusController.Instance.SkilDamage[2];
+    int SkillSelected =0;
+    float damage;
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.tag == "Enemy")
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
-            gameObject.SetActive(false);
         }
-        else if(col.transform.tag == "Boss")
+        else if (col.transform.tag == "Boss")
         {
             col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<BossHp>().GainDamage(damage);
-            gameObject.SetActive(false);
         }
     }
 
-    void OnBecameInvisible()
+    public void Selected(int num)
     {
-        gameObject.SetActive(false);
+        SkillSelected = num;
+        damage = StatusController.Instance.SkilDamage[SkillSelected];
     }
 }
