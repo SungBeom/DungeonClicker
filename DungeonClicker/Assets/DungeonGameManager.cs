@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class DungeonGameManager : MonoBehaviour
 {
     //List<object> CharacterData = new List<object>();
-    private static GameManager instance;
-    public static GameManager Instance {
+    private static DungeonGameManager instance;
+    public static DungeonGameManager Instance {
         get { return instance; }
     }
 

@@ -23,11 +23,11 @@ public class StatusController : MonoBehaviour
     void Awake()
     {
         selected = CharacterController.selected;
-        GameManager.CharacterList infos = GameManager.Instance.characterList[selected];
+        DungeonGameManager.CharacterList infos = DungeonGameManager.Instance.characterList[selected];
         ReceiveData(infos);
     }
 
-    public void ReceiveData(GameManager.CharacterList infos)
+    public void ReceiveData(DungeonGameManager.CharacterList infos)
     {
         //selected = CharacterController.selected;
         character = infos.character;

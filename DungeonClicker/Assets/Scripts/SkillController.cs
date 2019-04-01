@@ -9,10 +9,10 @@ public class SkillController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log(SkillSelected);
+        //Debug.Log(SkillSelected);
         damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().SkilDamage[SkillSelected];
-        Debug.Log(gameObject.transform.root);
-        Debug.Log(damage);
+        //Debug.Log(gameObject.transform.root);
+        //Debug.Log(damage);
         if (col.transform.tag == "Enemy")
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
