@@ -19,6 +19,8 @@ public class StatusController : MonoBehaviour
     public float AttackDamage;
     public float[] SkilDamage;
     public float Hp;
+    public float Reinforcement = 1;
+    // 속성과 설명을 표현 할 방법을 찾아야 함
 
     void Awake()
     {
@@ -31,13 +33,13 @@ public class StatusController : MonoBehaviour
     {
         //selected = CharacterController.selected;
         character = infos.character;
-        AttackDamage = infos.AttackDamage;
+        AttackDamage = infos.AttackDamage * Reinforcement;
 
         for(int i = 0; i < infos.SkilDamage.Length; i++)
         {
-            SkilDamage[i] = infos.SkilDamage[i];
+            SkilDamage[i] = infos.SkilDamage[i] * Reinforcement;
         }
 
-        Hp = infos.Hp;
+        Hp = infos.Hp * Reinforcement;
     }
 }   

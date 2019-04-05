@@ -154,6 +154,8 @@ MonoBehaviour:
     - 30
     - 40
     Hp: 100
+    Type: 0
+    Explanation: "\uCE90\uB9AD\uD130 \uC18C\uAC1C1"
   - CharacterPrefab: {fileID: 1696623463519560526}
     character: {fileID: 0}
     AttackDamage: 100
@@ -162,6 +164,8 @@ MonoBehaviour:
     - 70
     - 80
     Hp: 100
+    Type: 1
+    Explanation: "\uCE90\uB9AD\uD130 \uC18C\uAC1C2"
   - CharacterPrefab: {fileID: 3919185758006779578}
     character: {fileID: 0}
     AttackDamage: 100
@@ -170,6 +174,8 @@ MonoBehaviour:
     - 110
     - 120
     Hp: 100
+    Type: 2
+    Explanation: "\uCE90\uB9AD\uD130 \uC18C\uAC1C3"
 --- !u!4 &23504090
 Transform:
   m_ObjectHideFlags: 0
@@ -1518,7 +1524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000021037964, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.000026726397, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -2679,7 +2685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &787538323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4048,7 +4054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000060288908, y: 100.00003}
+  m_AnchoredPosition: {x: 0.000000838829, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714

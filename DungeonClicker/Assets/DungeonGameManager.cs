@@ -93,5 +93,8 @@ public class DungeonGameManager : MonoBehaviour
         public float AttackDamage;
         public float[] SkilDamage;
         public float Hp;
+        public float Reinforcement;
+        public int Type;
+        public string Explanation;
     }
 }
