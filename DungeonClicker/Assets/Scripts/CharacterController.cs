@@ -14,17 +14,25 @@ public class CharacterController : MonoBehaviour
     public static int characterCount = 3;
     int temp = 0;
     int SkilNum = 0;
-    //AnimationClip ani;
 
     void Start()
     {
         characterCount = 3;
-        character[selected].character.SetActive(true);
+        //character[selected].character.SetActive(true);
         //SkilNum = character[selected].character.transform.childCount;
-        for(int i = 1; i < 5; i++)
+
+        for (int i = 0; i < DungeonGameManager.Instance.characterList.Length; i++)
+        {
+            character[i].character = Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab);
+            character[i].character.SetActive(false);
+        }
+
+        for (int i = 1; i < 5; i++)
         {
             character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         }
+
+        character[selected].character.SetActive(true);
         //Btn.Board.transform.GetChild(2).GetComponent<Button>().gameObject.SetActive(false);
     }
 
@@ -35,7 +43,7 @@ public class CharacterController : MonoBehaviour
         {
             character[temp].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         }
-        character[selected].character.SetActive(true);
+        character[selected].character.SetActive(true);  // 여기가 문제네
         temp = selected;
     }
 
@@ -85,7 +93,6 @@ public class CharacterController : MonoBehaviour
     public void Attack()    // 공격시 근접 무기라면 그냥 공격을 하고 원거리 무기라면 instantiate를 사용하여 발사시키는 형식으로 함수만들것
     {
         character[temp].character.GetComponent<Animator>().Play("Attack");
-        //GameManager.Instance.characterList[0].Anim[4]
         StartCoroutine(AttackDelay(0.3f));
     }
 
@@ -100,16 +107,7 @@ public class CharacterController : MonoBehaviour
         character[temp].character.GetComponent<Animator>().Play("Special");
         //character[temp].character.GetComponent<Collider2D>().enabled = false;
     }
-    // 캐릭터 별로 스킬을 등록하자 -> 그냥 각각의 인덱스로 구분하면 될듯
-    public void Skil(int num)
-    {
-        //character[temp].character.GetComponent<Animator>().Play("skill_1"); // 이렇게 이름으로 하면 고정되버린다
-        //character[temp].character.GetComponent<Animation>().Animations[num];
-        //character[temp].character.GetComponent<Animation>().Play(character[temp].characterSkil[num]);
-        //ani = character[temp].characterSkil[num];
-    }
 
-    // 위에 구현막혀서 임시 구현
     public void Skil_1()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_1");
@@ -167,11 +165,6 @@ public class CharacterController : MonoBehaviour
         character[temp].character.transform.tag = "Player";
     }
 
-    /*public void SkilSet(int skilIndex)
-    {
-        character[temp].character.GetComponent<Animation>().Play(character[temp].characterSkil[skilIndex])
-    }*/
-    // 인스펙터에서 애니메이션이 들어가지않는다
     [System.Serializable]
     public class Character
     {

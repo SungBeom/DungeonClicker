@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DungeonGameManager : MonoBehaviour
 {
-    //List<object> CharacterData = new List<object>();
     private static DungeonGameManager instance;
     public static DungeonGameManager Instance {
         get { return instance; }
@@ -12,7 +11,6 @@ public class DungeonGameManager : MonoBehaviour
 
     public Manage manage;
     public CharacterList[] characterList;
-    //public GameObject[] CharacterPrefab;
 
     int gold;
     public int Gold
@@ -43,11 +41,6 @@ public class DungeonGameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
-        /*List<GameObject> CharacterList = new List<GameObject>();
-        for(int i = 0; i< CharacterPrefab.Length; i++)
-        {
-            CharacterList.Add(CharacterPrefab[i]);
-        }*/
     }
 
     void Start()
@@ -57,22 +50,18 @@ public class DungeonGameManager : MonoBehaviour
             manage.controller[i].gameObject.SetActive(true);
         }
 
-        // 리스트 값을 데이터베이스로 올리고 내리는 메소드가 필요 나중에 물어볼것
-        // 시작 시 리스트 값을 내려 받기
-        // 리스트의 인덱스를 이용하여 해당 값들이 변경 가능함을 확인하였음
-        //CharacterData.Add(characterList[0]);
-        //characterList[0].AttackDamage = 100;
+        /*for (int i = 0; i < GameManager.Instance.characterList.Length; i++)  // 현재 이부분은 메인과 합쳐졌을때 필요한 부분임
+        {
+            characterList[i].CharacterPrefab = GameManager.Instance.characterList[i].CharacterPrefab;
+            characterList[i].AttackDamage = GameManager.Instance.characterList[i].AttackDamage;
+            for (int j = 0; j < 3; j++)
+            {
+                characterList[i].SkilDamage[j] = GameManager.Instance.characterList[i].SkilDamage[j];
+            }
+            characterList[i].Hp = GameManager.Instance.characterList[i].Hp;
+        }*/
     }
 
-    // 다른 씬으로 데이터를 보내기 위한 함수
-    /*public CharacterList[] SendInfo()
-    {
-        return characterList;
-    }*/
-
-    // 다른 씬에서 보낸 데이터를 받기위한 함수
-    // 이 함수에서는 돈을 받음
-    // 어차피 메인매니저에서 돈을 관리할때 직접 접근이 가능할텐데 이 함수가 필요한가?
     public void ReceiveInfo()
     {
 
