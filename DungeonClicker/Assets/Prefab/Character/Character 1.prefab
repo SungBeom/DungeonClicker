@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 1128781416356841639}
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -359,7 +359,7 @@ RectTransform:
   m_Children:
   - {fileID: 1239453403279168655}
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -457,12 +457,12 @@ Transform:
   m_LocalPosition: {x: -2.271, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8430209657988338894}
   - {fileID: 1239453404114865190}
   - {fileID: 4350343192085375071}
   - {fileID: 6672370742926576654}
   - {fileID: 559276031314538150}
   - {fileID: 7443794945757970609}
-  - {fileID: 8430209657988338894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -883,7 +883,7 @@ Transform:
   m_Children:
   - {fileID: 5427257096231716938}
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4387035541994774482
 BoxCollider2D:
@@ -953,7 +953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3953385753654429710
 BoxCollider2D:
@@ -1022,7 +1022,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4348352259074147057
 MonoBehaviour:
@@ -1074,7 +1074,7 @@ Transform:
   m_LocalScale: {x: 0.49658, y: 0.49658, z: 0.49658}
   m_Children: []
   m_Father: {fileID: 1239453404214748466}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &986993191616676573
 BoxCollider2D:

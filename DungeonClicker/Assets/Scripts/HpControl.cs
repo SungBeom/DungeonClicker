@@ -15,8 +15,9 @@ public class HpControl : MonoBehaviour
     public void Start()
     {
         MyHp = myHp.GetComponent<Slider>();
-        hp = gameObject.transform.root.gameObject.transform.GetChild(5).GetComponent<StatusController>().Hp; // 스테이터스 컨트룰에서 HP값 받아오기
-        //Debug.Log(hp);
+        hp = gameObject.transform.root.gameObject.transform.GetChild(0).GetComponent<StatusController>().Hp; // 스테이터스 컨트룰에서 HP값 받아오기
+        //hp = DungeonGameManager.Instance.characterList[selected]
+        Debug.Log(hp);
         MyHp.value = hp;
     }
 
@@ -37,6 +38,7 @@ public class HpControl : MonoBehaviour
                 Destroy(gameObject.transform.root.gameObject, 0.5f);
             }
 
+            //gameObject.transform.GetComponent<Rigidbody2D>() = new Vector2(0, 1);
             DungeonGameManager.Instance.manage.controller[0].GetComponent<CharacterController>().DeathChange();
             gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");
             Destroy(gameObject.transform.root.gameObject, 0.5f);

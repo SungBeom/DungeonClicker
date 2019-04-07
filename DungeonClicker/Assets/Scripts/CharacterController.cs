@@ -27,7 +27,7 @@ public class CharacterController : MonoBehaviour
             character[i].character.SetActive(false);
         }
 
-        for (int i = 1; i < 5; i++)
+        for (int i = 2; i < 6; i++) //1~5
         {
             character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         }
