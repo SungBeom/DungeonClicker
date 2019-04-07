@@ -82,10 +82,15 @@ public class CharacterController : MonoBehaviour
                 continue;
             }
 
+            --characterCount;
             character[i].character.SetActive(true);
             temp = i;
             selected = i;
             break;
+        }
+        if (characterCount == 0)
+        {
+            DungeonGameManager.Instance.GameOver.SetActive(true);
         }
     }
 

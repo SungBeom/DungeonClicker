@@ -80,9 +80,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 1000
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -101,10 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 400
-  myHp: {fileID: 0}
-  hpUI: {fileID: 0}
-  characterController: {fileID: 0}
-  GameOver: {fileID: 0}
+  myHp: {fileID: 2080840866694628469}
 --- !u!1 &953314257205338460
 GameObject:
   m_ObjectHideFlags: 0
