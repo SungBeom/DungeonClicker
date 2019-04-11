@@ -60,6 +60,7 @@ public class CharacterController : MonoBehaviour
     
     public void DeathChange()
     {
+        Debug.Log(characterCount);
         for(int i = 0; i < character.Length; i++)
         {
             //리스트 사용 방법으로 변경 가능하면 바꿀것
@@ -82,7 +83,7 @@ public class CharacterController : MonoBehaviour
                 continue;
             }
 
-            --characterCount;
+            //--characterCount;
             character[i].character.SetActive(true);
             temp = i;
             selected = i;
@@ -113,20 +114,20 @@ public class CharacterController : MonoBehaviour
         //character[temp].character.GetComponent<Collider2D>().enabled = false;
     }
 
-    public void Skil_1()
+    public void Skil_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_1");
-        StartCoroutine(SkilDelay_1(0.3f));
+        StartCoroutine(SkilDelay_1(0.7f));
     }
     public void Skil_2()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_2");
-        StartCoroutine(SkilDelay_2(0.3f));
+        StartCoroutine(SkilDelay_2(1.0f));
     }
     public void Skil_3()
     {
         character[temp].character.GetComponent<Animator>().Play("Skil_3");
-        StartCoroutine(SkilDelay_3(0.3f));
+        StartCoroutine(SkilDelay_3(5.0f));
     }
 
     IEnumerator Delay()
@@ -137,30 +138,30 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator AttackDelay(float time)
     {
-        character[selected].character.transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(time);
-        character[selected].character.transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-    }
-
-    IEnumerator SkilDelay_1(float time)
-    {
         character[selected].character.transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         character[selected].character.transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
-    IEnumerator SkilDelay_2(float time)
+    IEnumerator SkilDelay_1(float time)
     {
         character[selected].character.transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         character[selected].character.transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
-    IEnumerator SkilDelay_3(float time)
+    IEnumerator SkilDelay_2(float time)
     {
         character[selected].character.transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         character[selected].character.transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+    }
+
+    IEnumerator SkilDelay_3(float time)
+    {
+        character[selected].character.transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+        character[selected].character.transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
     IEnumerator ShieldTime()

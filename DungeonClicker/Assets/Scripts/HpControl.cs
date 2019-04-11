@@ -17,7 +17,7 @@ public class HpControl : MonoBehaviour
         MyHp = myHp.GetComponent<Slider>();
         hp = gameObject.transform.root.gameObject.transform.GetChild(0).GetComponent<StatusController>().Hp; // 스테이터스 컨트룰에서 HP값 받아오기
         //hp = DungeonGameManager.Instance.characterList[selected]
-        Debug.Log(hp);
+        //Debug.Log(hp);
         MyHp.value = hp;
     }
 
@@ -28,9 +28,11 @@ public class HpControl : MonoBehaviour
 
        if(hp <= 0)
         {
-            CharacterController.characterCount--;
-            gameObject.transform.root.gameObject.layer = 11;
-            if(CharacterController.characterCount == 0)
+            CharacterController.characterCount--; //여기보단 컨트룰러에서 관리하는게 나을거 같음 -> 여기서 해당 정보로 움직이는게 있으니 여기가 나을수도
+            //gameObject.transform.root.gameObject.layer = 11;
+            gameObject.transform.root.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10),ForceMode2D.Impulse);
+            //gameObject.tag = "untagged";
+            if (CharacterController.characterCount == 0) //여기서 공중으로 상승시키면 될듯
             {
                 //GameOver.gameObject.SetActive(true);
                 gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");

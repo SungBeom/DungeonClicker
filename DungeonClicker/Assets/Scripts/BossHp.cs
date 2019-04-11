@@ -8,7 +8,7 @@ public class BossHp : MonoBehaviour
     public float hp;
     Slider MyHp;
     public Slider hpUI; //  좌측 상단 표시용 슬라이더
-    public Transform StageClear;
+    //public Transform StageClear;
 
     public void Start()
     {
@@ -24,10 +24,11 @@ public class BossHp : MonoBehaviour
 
         if (hp <= 0)
         {
+            Debug.Log("확인");
             DungeonGameManager.Instance.Gold += 100;
-            StageClear.gameObject.SetActive(true);
+            //StageClear.gameObject.SetActive(true);
             //gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
-            StartCoroutine(Delay());
+            //StartCoroutine(Delay());
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
     }

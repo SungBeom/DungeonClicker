@@ -154,7 +154,7 @@ MonoBehaviour:
     - 20
     - 30
     - 40
-    Hp: 10
+    Hp: 200
     Reinforcement: 0
     Type: 0
     Explanation: "\uCE90\uB9AD\uD130 \uC18C\uAC1C1"
@@ -166,7 +166,7 @@ MonoBehaviour:
     - 60
     - 70
     - 80
-    Hp: 100
+    Hp: 200
     Reinforcement: 0
     Type: 1
     Explanation: "\uCE90\uB9AD\uD130 \uC18C\uAC1C2"
@@ -177,7 +177,7 @@ MonoBehaviour:
     SkilDamage:
     - 100
     - 110
-    - 120
+    - 500
     Hp: 200
     Reinforcement: 0
     Type: 2
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1000
   hpUI: {fileID: 378161139}
-  StageClear: {fileID: 1560251634}
+  StageClear: {fileID: 0}
 --- !u!114 &378161139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,7 +1525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000044236556, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.00007563883, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -4055,7 +4055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000020798186, y: 100.00003}
+  m_AnchoredPosition: {x: -0.000000026808813, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714
@@ -6876,7 +6876,7 @@ PrefabInstance:
     - target: {fileID: 1755728167196037581, guid: d718a85e44bb1ed42ac6cf2f6012195d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1755728167196037581, guid: d718a85e44bb1ed42ac6cf2f6012195d,
         type: 3}
