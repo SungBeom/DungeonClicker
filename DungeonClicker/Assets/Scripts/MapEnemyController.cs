@@ -52,7 +52,7 @@ public class MapEnemyController : MonoBehaviour
 
     public void Retry()
     {
-        /*SceneManager.LoadScene("Dungeon");*/
+        SceneManager.LoadScene("Dungeon");    // 이렇게 할 경우 씬은 불러오나 정지됨 -> 불러오고 나면 매니저의 컨트룰러들이 missing으로 변경됨을 확인하였음
         Time.timeScale = 1.0f;
         temp = selected;
         map[temp].mapObject.SetActive(false);
