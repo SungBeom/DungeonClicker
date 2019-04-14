@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 7673084620624446929}
   - component: {fileID: 268894171857542055}
   m_Layer: 0
-  m_Name: Character 2
+  m_Name: ElectricBattleMage
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +966,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2020888269
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6599019843443575300
