@@ -21,13 +21,13 @@ public class StatusController : MonoBehaviour
     public float Hp;
     public float Reinforcement = 1;
     // 속성과 설명을 표현 할 방법을 찾아야 함
-
     void Start()
     {
         selected = CharacterController.selected;
         DungeonGameManager.CharacterList infos = DungeonGameManager.Instance.characterList[selected];
         ReceiveData(infos);
     }
+
 
     public void ReceiveData(DungeonGameManager.CharacterList infos)
     {

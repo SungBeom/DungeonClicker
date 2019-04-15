@@ -12,6 +12,7 @@ public class DungeonGameManager : MonoBehaviour
     public Manage manage;
     public CharacterList[] characterList;
     public GameObject GameOver;
+    public GameObject GameClear;
 
     int gold;
     public int Gold

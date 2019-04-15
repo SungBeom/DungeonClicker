@@ -27,10 +27,10 @@ public class CharacterController : MonoBehaviour
             character[i].character.SetActive(false);
         }
 
-        for (int i = 2; i < 6; i++) //1~5
-        {
-            character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        }
+        //for (int i = 2; i < 6; i++) //1~5
+        //{
+        //    character[selected].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        //}
 
         character[selected].character.SetActive(true);
         //Btn.Board.transform.GetChild(2).GetComponent<Button>().gameObject.SetActive(false);
@@ -39,10 +39,10 @@ public class CharacterController : MonoBehaviour
     public void Change()
     {
         character[temp].character.SetActive(false);
-        for (int i = 1; i < SkilNum; i++)
-        {
-            character[temp].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        }
+        //for (int i = 1; i < SkilNum; i++)
+        //{
+        //    character[temp].character.transform.GetChild(i).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        //}
         character[selected].character.SetActive(true);  // 여기가 문제네
         temp = selected;
     }
