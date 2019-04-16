@@ -64,6 +64,18 @@ public class DungeonGameManager : MonoBehaviour
         }*/
     }
 
+    public void CallGameClear()
+    {
+        GameClear.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void CallGameOver()
+    {
+        GameOver.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
     public void ReceiveInfo()
     {
 
@@ -79,13 +91,10 @@ public class DungeonGameManager : MonoBehaviour
     public class CharacterList
     {
         public GameObject CharacterPrefab;
-        public Sprite character;
-        //public AnimationClip[] Anim;
         public float AttackDamage;
         public float[] SkilDamage;
         public float Hp;
         public float Reinforcement;
         public int Type;
-        public string Explanation;
     }
 }

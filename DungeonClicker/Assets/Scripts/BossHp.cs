@@ -29,6 +29,7 @@ public class BossHp : MonoBehaviour
             //StageClear.gameObject.SetActive(true);
             //gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
             //StartCoroutine(Delay());
+            DungeonGameManager.Instance.CallGameClear();
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
     }

@@ -32,7 +32,6 @@ public class StatusController : MonoBehaviour
     public void ReceiveData(DungeonGameManager.CharacterList infos)
     {
         //selected = CharacterController.selected;
-        character = infos.character;
         AttackDamage = infos.AttackDamage * Reinforcement;
 
         for(int i = 0; i < infos.SkilDamage.Length; i++)

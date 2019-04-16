@@ -36,6 +36,7 @@ public class HpControl : MonoBehaviour
             if (CharacterController.characterCount == 0) //여기서 공중으로 상승시키면 될듯
             {
                 StartCoroutine(Delay());
+                DungeonGameManager.Instance.CallGameOver();
             }
             else
             {
@@ -47,7 +48,7 @@ public class HpControl : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.485f);
         Time.timeScale = 0.0f;
     }
 }
