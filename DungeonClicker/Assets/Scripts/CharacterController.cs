@@ -116,17 +116,17 @@ public class CharacterController : MonoBehaviour
 
     public void Skil_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
-        character[temp].character.GetComponent<Animator>().Play("Skil_1");
+        character[temp].character.GetComponent<Animator>().Play("Skill_1");
         StartCoroutine(SkilDelay_1(0.7f));
     }
     public void Skil_2()
     {
-        character[temp].character.GetComponent<Animator>().Play("Skil_2");
+        character[temp].character.GetComponent<Animator>().Play("Skill_2");
         StartCoroutine(SkilDelay_2(1.0f));
     }
     public void Skil_3()
     {
-        character[temp].character.GetComponent<Animator>().Play("Skil_3");
+        character[temp].character.GetComponent<Animator>().Play("Skill_3");
         StartCoroutine(SkilDelay_3(5.0f));
     }
 
