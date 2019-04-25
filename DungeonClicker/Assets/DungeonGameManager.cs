@@ -95,6 +95,25 @@ public class DungeonGameManager : MonoBehaviour
         public float[] SkilDamage;
         public float Hp;
         public float Reinforcement;
+        public Sprite CharacterImage;   // 캐릭터 변경시 사용할 이미지
         public int Type;
+    }
+
+    public float AttackDamage;
+    public float[] SkilDamage;
+    public float Hp;
+    public float Reinforcement = 1;
+
+    public void ReceiveData(CharacterList infos)
+    {
+        //selected = CharacterController.selected;
+        AttackDamage = infos.AttackDamage * Reinforcement;
+
+        for (int i = 0; i < infos.SkilDamage.Length; i++)
+        {
+            SkilDamage[i] = infos.SkilDamage[i] * Reinforcement;
+        }
+
+        Hp = infos.Hp * Reinforcement;
     }
 }

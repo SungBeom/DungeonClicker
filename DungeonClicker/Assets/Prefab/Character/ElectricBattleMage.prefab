@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4643608998942790070}
   - component: {fileID: 5534544047779069150}
   m_Layer: 0
-  m_Name: Skil_3
+  m_Name: Skill_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 435141479840627217}
   - component: {fileID: 3365900191573756304}
   m_Layer: 0
-  m_Name: Skil_2
+  m_Name: Skill_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 6179364434467533146}
   - component: {fileID: 3785898923394268784}
   m_Layer: 0
-  m_Name: Skil_1
+  m_Name: Skill_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

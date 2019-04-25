@@ -155,8 +155,9 @@ MonoBehaviour:
     - 40
     Hp: 200
     Reinforcement: 0
+    CharacterImage: {fileID: 0}
     Type: 0
-  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
+  - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -165,8 +166,9 @@ MonoBehaviour:
     - 80
     Hp: 200
     Reinforcement: 0
+    CharacterImage: {fileID: 0}
     Type: 1
-  - CharacterPrefab: {fileID: 970824260562186979, guid: a46738202a1deae438531aec1a38b974,
+  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -175,9 +177,14 @@ MonoBehaviour:
     - 500
     Hp: 200
     Reinforcement: 0
+    CharacterImage: {fileID: 0}
     Type: 2
   GameOver: {fileID: 1951856647}
   GameClear: {fileID: 1560251633}
+  AttackDamage: 0
+  SkilDamage: []
+  Hp: 0
+  Reinforcement: 1
 --- !u!4 &23504090
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,7 +1235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000118610515, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.000080485916, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -3481,7 +3488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000022058675, y: 100.00003}
+  m_AnchoredPosition: {x: 0.00001321634, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714

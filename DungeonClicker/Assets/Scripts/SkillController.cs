@@ -9,10 +9,8 @@ public class SkillController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        //Debug.Log(SkillSelected);
-        damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().SkilDamage[SkillSelected];
-        //Debug.Log(gameObject.transform.root);
-        //Debug.Log(damage);
+        damage = DungeonGameManager.Instance.SkilDamage[SkillSelected];
+
         if (col.transform.tag == "Enemy")
         {
             col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
@@ -26,11 +24,5 @@ public class SkillController : MonoBehaviour
     public void Selected(int num)
     {
         SkillSelected = num;
-        //Debug.Log(SkillSelected);
-        //damage = StatusController.Instance.SkilDamage[SkillSelected];
-        //Debug.Log(gameObject.transform.root);
-        //damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().SkilDamage[SkillSelected];
-        //Debug.Log(damage);
-        //return SkillSelected;
     }
 }

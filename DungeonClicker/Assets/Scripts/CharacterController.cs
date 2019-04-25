@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
     //public Animator animator;
 
     public Character[] character;
+    public List<object> list = new List<object>();
     public ButtonControll Btn;
     public static int selected = 0;
     public int skilIndex;
@@ -18,13 +19,12 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         characterCount = 3;
-        //character[selected].character.SetActive(true);
-        //SkilNum = character[selected].character.transform.childCount;
 
         for (int i = 0; i < DungeonGameManager.Instance.characterList.Length; i++)
         {
             character[i].character = Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab);
             character[i].character.SetActive(false);
+            //list.Add(Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab));    //리스트 내부값에 접근해야하는데
         }
 
         //for (int i = 2; i < 6; i++) //1~5
