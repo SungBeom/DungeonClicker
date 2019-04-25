@@ -146,7 +146,7 @@ MonoBehaviour:
     - {fileID: 1054176021}
     - {fileID: 506041849}
   characterList:
-  - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
+  - CharacterPrefab: {fileID: 1239453404214748479, guid: ce0df7df5c783814e97a5c15f9a07348,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -157,7 +157,7 @@ MonoBehaviour:
     Reinforcement: 0
     CharacterImage: {fileID: 0}
     Type: 0
-  - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
+  - CharacterPrefab: {fileID: 1075749819219059394, guid: d3a6989f017f7ae4cbbaa6ebee8d30fc,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -168,7 +168,7 @@ MonoBehaviour:
     Reinforcement: 0
     CharacterImage: {fileID: 0}
     Type: 1
-  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
+  - CharacterPrefab: {fileID: 3919185758006779578, guid: a0e8bc4bf2022ea4fa7a134c03163256,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -1235,7 +1235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000080485916, y: 0.00011597562}
+  m_AnchoredPosition: {x: 0.00006971466, y: 0.00011597562}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &457024361
@@ -3488,7 +3488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00001321634, y: 100.00003}
+  m_AnchoredPosition: {x: 0.00001516966, y: 100.00003}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1294372714
