@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     //public Animator animator;
 
     public Character[] character;
+    public GameObject canvas;
+    private GameObject go;
     public List<object> list = new List<object>();
     public ButtonControll Btn;
     public static int selected = 0;
@@ -22,7 +24,9 @@ public class CharacterController : MonoBehaviour
 
         for (int i = 0; i < DungeonGameManager.Instance.characterList.Length; i++)
         {
-            character[i].character = Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab);
+            go = Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab);
+            go.transform.parent = canvas.transform;
+            character[i].character = go;
             character[i].character.SetActive(false);
             //list.Add(Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab));    //리스트 내부값에 접근해야하는데
         }
