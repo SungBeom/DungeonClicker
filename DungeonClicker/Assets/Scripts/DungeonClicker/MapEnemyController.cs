@@ -32,9 +32,6 @@ public class MapEnemyController : MonoBehaviour
         {
             renderer[i].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[i], 0));
         }
-        /*renderer[0].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[0], 0));
-        renderer[1].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[1], 0));
-        renderer[2].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[2], 0));*/
     }
 
     public void ChangeMap()
@@ -68,7 +65,6 @@ public class MapEnemyController : MonoBehaviour
     {
         for (int i = 0; i < map[selected].NormalEnemy.Length; i++)
         {
-            //Debug.Log(map[selected].NormalEnemy.Length);
             for (int j = 0; j < map[selected].NormalEnemyCount[i]; j++)
             {
                 gameObject = Instantiate(map[selected].NormalEnemy[i], SpawnPosition.transform.position, SpawnPosition.transform.rotation);

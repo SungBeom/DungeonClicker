@@ -40,7 +40,7 @@ public class HpControl : MonoBehaviour
             }
             else
             {
-                DungeonGameManager.Instance.manage.controller[0].GetComponent<CharacterController>().DeathChange();
+                //DungeonGameManager.Instance.manage.controller[0].GetComponent<CharacterController>().DeathChange();
             }
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }

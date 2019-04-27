@@ -12,7 +12,7 @@ public class EnemyHp : MonoBehaviour
 
         if (hp <= 0)
         {
-            DungeonGameManager.Instance.Gold += 10;
+            //DungeonGameManager.Instance.Gold += 10;
             Destroy(gameObject.transform.root.gameObject);
         }
     }

@@ -9,29 +9,10 @@ public class DungeonGameManager : MonoBehaviour
         get { return instance; }
     }
 
-    public Manage manage;
+    //public Manage manage;
     public CharacterList[] characterList;
     public GameObject GameOver;
     public GameObject GameClear;
-
-    int gold;
-    public int Gold
-    {
-        get { return gold; }
-        set { gold = value; }
-    }
-    int food;
-    public int Food
-    {
-        get { return food; }
-        set { food = value; }
-    }
-    int jewelry;
-    public int Jewelry
-    {
-        get { return jewelry; }
-        set { jewelry = value; }
-    }
     
     void Awake()
     {
@@ -47,56 +28,36 @@ public class DungeonGameManager : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < manage.controller.Length; i++)
-        {
-            manage.controller[i].gameObject.SetActive(true);
-        }
-
-        /*for (int i = 0; i < GameManager.Instance.characterList.Length; i++)  // 현재 이부분은 메인과 합쳐졌을때 필요한 부분임
-        {
-            characterList[i].CharacterPrefab = GameManager.Instance.characterList[i].CharacterPrefab;
-            characterList[i].AttackDamage = GameManager.Instance.characterList[i].AttackDamage;
-            for (int j = 0; j < 3; j++)
-            {
-                characterList[i].SkilDamage[j] = GameManager.Instance.characterList[i].SkilDamage[j];
-            }
-            characterList[i].Hp = GameManager.Instance.characterList[i].Hp;
-        }*/
+        
     }
 
+    // 게임 클리어를 호출하기 위한 메소드
     public void CallGameClear()
     {
         GameClear.SetActive(true);
         Time.timeScale = 0.0f;
     }
 
+    // 게임 패배시 게임오버를 호출하기 위한 메소드
     public void CallGameOver()
     {
         GameOver.SetActive(true);
         Time.timeScale = 0.0f;
     }
 
-    public void ReceiveInfo()
-    {
-
-    }
-
-    [System.Serializable]
-    public class Manage
-    {
-        public GameObject[] controller;
-    }
-
+    // 캐릭터의 정보를 담기위한 클래스
     [System.Serializable]
     public class CharacterList
     {
-        public GameObject CharacterPrefab;
-        public float AttackDamage;
-        public float[] SkilDamage;
-        public float Hp;
-        public float Reinforcement;
-        public Sprite CharacterImage;   // 캐릭터 변경시 사용할 이미지
-        public int Type;
+        public GameObject CharacterPrefab;  // 캐릭터의 프리팹(애니메이션, 애니메이터가 내장)
+        public float AttackDamage;          // 캐릭터 기본공격 데미지
+        public float[] SkilDamage;          // 캐릭터가 사용하는 3개의 스킬에 해당하는 데미지
+        public float Hp;                    // 캐릭터의 체력
+        public float Reinforcement;         // 캐릭터 강화 횟수
+        public bool life = true;            // 캐릭터 생존 여부를 구분하기 위한 플래그값 -> 현재 필요한지 고려중
+        public Sprite CharacterImage;       // 캐릭터 변경시 사용할 이미지
+        public Sprite[] SkillImages;        // 캐릭터가 사용하는 3개의 스킬에 해당하는 이미지
+        public int Type;                    // 캐릭터가 해당하는 속성 (ex)0 = 불. 1 = 물, 2 = 풀
     }
 
     public float AttackDamage;
@@ -106,7 +67,6 @@ public class DungeonGameManager : MonoBehaviour
 
     public void ReceiveData(CharacterList infos)
     {
-        //selected = CharacterController.selected;
         AttackDamage = infos.AttackDamage * Reinforcement;
 
         for (int i = 0; i < infos.SkilDamage.Length; i++)
