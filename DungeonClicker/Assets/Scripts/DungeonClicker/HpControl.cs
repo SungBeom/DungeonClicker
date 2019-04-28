@@ -6,18 +6,13 @@ using UnityEngine.UI;
 public class HpControl : MonoBehaviour
 {
     public float hp;
-    public Transform myHp; //  자신의 슬라이더
+    public Transform myHp; // 던전 캔버스 안에 있는 좌측 슬라이더
     Slider MyHp;
-    //public Slider hpUI; //  좌측 상단 표시용 슬라이더
-    //public GameObject characterController;
-    //public Text GameOver;
-    
+
     public void Start()
     {
         MyHp = myHp.GetComponent<Slider>();
-        hp = gameObject.transform.root.gameObject.transform.GetChild(0).GetComponent<StatusController>().Hp; // 스테이터스 컨트룰에서 HP값 받아오기
-        //hp = DungeonGameManager.Instance.characterList[selected]
-        //Debug.Log(hp);
+        hp = DungeonGameManager.Instance.characterList[CharacterController.selected].Hp;
         MyHp.value = hp;
     }
 
@@ -28,11 +23,11 @@ public class HpControl : MonoBehaviour
 
        if(hp <= 0)
         {
-            CharacterController.characterCount--; //여기보단 컨트룰러에서 관리하는게 나을거 같음 -> 여기서 해당 정보로 움직이는게 있으니 여기가 나을수도
-            //gameObject.transform.root.gameObject.layer = 11;
-            gameObject.transform.root.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10),ForceMode2D.Impulse);
-            gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");
-            //gameObject.tag = "untagged";
+            CharacterController.characterCount--;
+
+            gameObject.transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);   // 현재로썬 parent.parent가 최선으로 보임 다른 방안이 있을시 변경할것
+            gameObject.transform.parent.parent.GetComponent<Animator>().SetTrigger("Die_t");
+
             if (CharacterController.characterCount == 0) //여기서 공중으로 상승시키면 될듯
             {
                 StartCoroutine(Delay());
@@ -40,9 +35,9 @@ public class HpControl : MonoBehaviour
             }
             else
             {
-                //DungeonGameManager.Instance.manage.controller[0].GetComponent<CharacterController>().DeathChange();
+                // CharacterController에 있는 DeathChange를 호출해야함
             }
-            Destroy(gameObject.transform.root.gameObject, 0.5f);
+            Destroy(gameObject.transform.parent.parent.gameObject, 0.5f);
         }
     }
 

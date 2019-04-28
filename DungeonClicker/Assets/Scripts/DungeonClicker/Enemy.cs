@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float Damage;
-    public float Hp;
-    public float Speed;
-    public float Gold;
-    public float AntiElasticity;
+    public float Damage;            // 공격 데미지
+    public float Hp;                // 체력
+    public float Speed;             // 움직임 속도
+    public float Gold;              // 사망시 주는 골드
+    public float AntiElasticity;    // 반탄력
 
     void Start()
     {
-        gameObject.SetActive(true);
+
     }
     void Update()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale);
-        //transform.Translate(new Vector2(-1, 0) * Speed *Time.timeScale);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -29,15 +28,8 @@ public class Enemy : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
         }
         else if(col.gameObject.tag == "Boss") { return; }
-        else
-        {
-            GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
-            return;
-        }
-    }
-
-    void OnBecameInvisible()    // 이게 왜 적용이 안될까
-    {
-        Destroy(gameObject);
+        else { return; }
     }
 }
+
+// Hp 관련과 병합하는것도 나쁘지 않을것 같다

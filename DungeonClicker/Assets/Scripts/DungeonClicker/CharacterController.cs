@@ -15,6 +15,10 @@ public class CharacterController : MonoBehaviour
     int SkilNum = 0;
     ArrayList characterPrefabs = new ArrayList();   // ArrayList 사용시 접근을 할수는 있으나 이게 효율적인가?
     //List<GameObject>
+    delegate void Skill();
+    Skill[] skills;
+    //delegate void Delay();
+    //Delay[] delays;
 
     void Start()
     {
@@ -27,8 +31,22 @@ public class CharacterController : MonoBehaviour
             go.SetActive(false);
             characterPrefabs.Add(go);
         }
+    
+        ((GameObject)characterPrefabs[selected]).SetActive(true);
 
-        ((GameObject)characterPrefabs[0]).SetActive(true);
+        skills = new Skill[]
+        {
+            new Skill(Skill_1),
+            new Skill(Skill_2),
+            new Skill(Skill_3)
+        };
+
+        /*delays = new Delay[]  // 코루틴은 딜리게이트 불가능인가?
+        {
+            new Delay(AttackDelay(0.3f)),
+            new Delay(ShieldTime),
+            new Delay(skill)
+        };*/
     }
 
     public void Change()
@@ -41,12 +59,7 @@ public class CharacterController : MonoBehaviour
     public void Select(int num)
     {
         selected = num;
-        if (selected != temp)
-        {
-            Change();
-        }
-        //selected = num;
-        //Change();
+        if (selected != temp){ Change(); }
     }
     
     public void DeathChange()
@@ -89,7 +102,7 @@ public class CharacterController : MonoBehaviour
     }
 
     //캐릭터 클래스안에 3개 버튼 스킬 및, 캐릭터 별 내장 스킬을 집어 넣고 인덱스를 통해 접근하여 스킬을 실행시키자
-    public void Attack()    // 공격시 근접 무기라면 그냥 공격을 하고 원거리 무기라면 instantiate를 사용하여 발사시키는 형식으로 함수만들것
+    public void Attack()
     {
         //character[temp].character.GetComponent<Animator>().Play("Attack");
         ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().Play("Attack");
@@ -102,28 +115,33 @@ public class CharacterController : MonoBehaviour
         StartCoroutine(ShieldTime());
     }
 
-    // SKill_1~3 모두 같은 기능 쿨타임과 플레이하는 애니메이션 이름이 다름 이걸 통합해서 하는 방법은 없는가?
-    public void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
+    public void UseSkill(int index)
     {
-        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().Play("Skill_1");
+        skills[index]();
+    }
+
+    // SKill_1~3 모두 같은 기능 쿨타임과 플레이하는 애니메이션 이름이 다름 이걸 통합해서 하는 방법은 없는가?
+    void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
+    {
+        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_1_t");
         StartCoroutine(SkilDelay_1(0.7f));
     }
-    public void Skill_2()
+    void Skill_2()
     {
-        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().Play("Skill_2");
+        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_2_t");
         StartCoroutine(SkilDelay_2(1.0f));
     }
-    public void Skill_3()
+    void Skill_3()
     {
-        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().Play("Skill_3");
+        ((GameObject)characterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_3_t");
         StartCoroutine(SkilDelay_3(5.0f));
     }
 
-    IEnumerator Delay()
+    /*IEnumerator Delay()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f);        
         DeathChange();
-    }
+    }*/
 
     IEnumerator AttackDelay(float time)
     {

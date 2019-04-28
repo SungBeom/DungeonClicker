@@ -7,8 +7,7 @@ public class BossHp : MonoBehaviour
 {
     public float hp;
     Slider MyHp;
-    public Slider hpUI; //  좌측 상단 표시용 슬라이더
-    //public Transform StageClear;
+    public Slider hpUI; //  보스 HP 표시용 슬라이더
 
     public void Start()
     {
@@ -19,24 +18,12 @@ public class BossHp : MonoBehaviour
     public void GainDamage(float damage)
     {
         hp -= damage;
-        //Debug.Log(MyHp);
         MyHp.value = hp;
 
         if (hp <= 0)
         {
-            //Debug.Log("확인");
-            //DungeonGameManager.Instance.Gold += 100;
-            //StageClear.gameObject.SetActive(true);
-            //gameObject.transform.root.GetComponent<Animator>().SetTrigger("Die_t");     // 나중에 추가 될 보스 사망 모션 추가
-            //StartCoroutine(Delay());
             DungeonGameManager.Instance.CallGameClear();
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
-    }
-
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(0.35f);
-        Time.timeScale = 0.0f;
     }
 }
