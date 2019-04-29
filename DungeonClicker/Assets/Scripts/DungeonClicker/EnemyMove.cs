@@ -15,7 +15,8 @@ public class EnemyMove : MonoBehaviour
         if (col.gameObject.tag == "Ground") { return; }
         else if(col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
+            //col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<HpControl>().GainDamage(30);
+            DungeonGameManager.Instance.CharacterController.GetComponent<CharacterController>().GetInjured(30);
             GetComponent<Rigidbody2D>().AddForce(transform.right * 300f);
         }
         else

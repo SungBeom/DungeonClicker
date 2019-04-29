@@ -9,7 +9,8 @@ public class DungeonGameManager : MonoBehaviour
         get { return instance; }
     }
 
-    //public Manage manage;
+    public GameObject CharacterController;
+    public GameObject MapEnemyController;
     public CharacterList[] characterList;
     public GameObject GameOver;
     public GameObject GameClear;
