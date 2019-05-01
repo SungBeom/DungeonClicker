@@ -18,7 +18,7 @@ public class SkillController : MonoBehaviour
         }
         else if (col.transform.tag == "Boss")
         {
-            col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<BossHp>().GainDamage(damage);
+            DungeonGameManager.Instance.MapEnemyController.GetComponent<MapEnemyController>().BossGetInjured(damage);
         }
     }
 

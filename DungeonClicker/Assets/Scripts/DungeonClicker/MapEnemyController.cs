@@ -6,12 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MapEnemyController : MonoBehaviour
 {
+    public Transform BossHpBar;
     public Map[] map;
     Renderer[] renderer = new Renderer[3];  // 3개의 랜더러가 필요함 원경, 중경, 근경
     public static int selected = 0;    // 맵 선택에 따라서 값이 바뀜
     GameObject gameObject;
     public GameObject SpawnPosition;
     static int temp;
+
+    // start에 있어서 한번만 맵이 제대로 움직임 함수화하거나 다른 방법을 찾아야 함
+    void Awake()
+    {
+        BossHpBar.GetComponent<Slider>().maxValue = map[selected].BossHp;
+    }
 
     void Start()
     {
@@ -31,6 +38,17 @@ public class MapEnemyController : MonoBehaviour
         for (int i = 0; i < map[selected].speed.Length; i++)
         {
             renderer[i].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[i], 0));
+        }
+    }
+
+    public void BossGetInjured(float Damage)
+    {
+        map[selected].BossHp -= Damage;
+        BossHpBar.GetComponent<Slider>().value = map[selected].BossHp;
+
+        if (map[selected].BossHp <= 0)
+        {
+            Destroy(map[selected].Boss, 0.5f);
         }
     }
 
@@ -72,6 +90,7 @@ public class MapEnemyController : MonoBehaviour
                 yield return new WaitForSeconds(2.0f);
             }
         }
+        BossHpBar.gameObject.SetActive(true);
         gameObject = Instantiate(map[selected].Boss, SpawnPosition.transform.position, SpawnPosition.transform.rotation);
         gameObject.SetActive(true);
     }
@@ -86,8 +105,10 @@ public class MapEnemyController : MonoBehaviour
         public GameObject[] NormalEnemy;
         public float[] EnemyDamage;
         public float[] NormalEnemyCount;
+        public float[] NormalEnemyHp;
 
         public GameObject Boss;
         public float BossDamage;
+        public float BossHp;
     }
 }

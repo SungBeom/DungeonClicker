@@ -8,7 +8,8 @@ public class WeaponController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().AttackDamage;
+        //damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().AttackDamage;
+        damage = DungeonGameManager.Instance.characterList[CharacterController.selected].AttackDamage;
         //Debug.Log(gameObject.transform.root);
         //Debug.Log(damage);
         //float damage = StatusController.Instance.AttackDamage;

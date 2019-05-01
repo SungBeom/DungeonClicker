@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
-    public GameObject canvas;
-    public ButtonControll Btn;
+    public Transform canvas;
+    public ButtonControll[] Btn;
     public Transform HpBar;                                  // 캐릭터 체력 Hp바
     private GameObject go;
     //ArrayList CharacterPrefabs { get; } = new ArrayList();   // ArrayList 사용시 접근을 할수는 있으나 이게 효율적인가? -> 배열로 변경 후 앞 뒤가 비어있는지를 확인하는 방식으로 진행해볼예정
@@ -31,6 +31,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(CharacterPrefabs.Length);
         ChangeHp();
         for (int i = 0; i < characterCount; i++)  // 던전매니저에서 처음에 정보를 받아오자
         {
@@ -100,31 +101,77 @@ public class CharacterController : MonoBehaviour
     
     public void DeathChange()
     {
-        ((GameObject)CharacterPrefabs[selected]).GetComponent<BoxCollider2D>().enabled = false;
-        ((GameObject)CharacterPrefabs[selected]).GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
-        ((GameObject)CharacterPrefabs[selected]).GetComponent<Animator>().SetTrigger("Die_t");
+        //((GameObject)CharacterPrefabs[selected]).GetComponent<BoxCollider2D>().enabled = false;
+        //((GameObject)CharacterPrefabs[selected]).GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        //((GameObject)CharacterPrefabs[selected]).GetComponent<Animator>().SetTrigger("Die_t");
         //DeleteArrayList();
         //selected = (selected + CharacterPrefabs.Count) % CharacterPrefabs.Count;    // Divide 0 에러 발생 이유를 확인해보아야함
-        //CharacterPrefabs[selected].GetComponent<BoxCollider2D>().enabled = false;
-        //CharacterPrefabs[selected].GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
-        //CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Die_t");
-        //CharacterPrefabs[selected].SetActive(false);
-        // 버튼 interactive 끄면 될듯
-        ChangeHp();
-        //((GameObject)CharacterPrefabs[selected]).SetActive(true);
+        --characterCount;
+        CharacterPrefabs[selected].GetComponent<BoxCollider2D>().enabled = false;
+        CharacterPrefabs[selected].GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Die_t");
+        Btn[selected].CharacterChangeBtn.interactable = false;
+        Destroy(CharacterPrefabs[selected].gameObject, 0.5f);
+
         //비효율적인 캐릭터 교체 방식임 캐릭터가 사망시 그 다음차레의 캐릭터로 변경하는 방식으로 변경
+        // 자신 인덱스 기준으로 앞에 인덱스를 먼저 체크 앞 배열 인덱스에 캐릭터가 있을경우 교체 없을경우 뒤 인덱스를 체크 
+        // 만약 자신이 0번 인덱스일 경우 해당 배열의 마지막 인덱스를 확인 있을 경우 그 캐릭터와 교체 아닐경우 뒤 인덱스를 체크
+        // 만약 자신이 마지막 인덱스일 경우 앞에 배열 인덱스 캐릭터의 존재를 체크하고 없으면 해당 배열의 최초 인덱스 체크
+
+        if(characterCount == 0)
+        {
+            DungeonGameManager.Instance.CallGameOver();
+        }
+        else if(selected == 0)
+        {
+            if(CharacterPrefabs[(CharacterPrefabs.Length - 1)].gameObject != null)
+            {
+                CharacterPrefabs[(CharacterPrefabs.Length - 1)].SetActive(true);
+                selected = (CharacterPrefabs.Length - 1);
+            }
+            else
+            {
+                CharacterPrefabs[++selected].SetActive(true);
+            }
+        }
+        else if(selected == (CharacterPrefabs.Length - 1))
+        {
+            if(CharacterPrefabs[(selected-1)].gameObject != null)
+            {
+                CharacterPrefabs[--selected].SetActive(true);
+            }
+            else
+            {
+                CharacterPrefabs[0].SetActive(true);
+                selected = 0;
+            }
+        }
+        else
+        {
+            if(CharacterPrefabs[(selected-1)].gameObject != null)
+            {
+                CharacterPrefabs[--selected].SetActive(true);
+            }
+            else
+            {
+                CharacterPrefabs[++selected].SetActive(true);
+            }
+        }
+        ChangeHp();
     }
 
     //캐릭터 클래스안에 3개 버튼 스킬 및, 캐릭터 별 내장 스킬을 집어 넣고 인덱스를 통해 접근하여 스킬을 실행시키자
     public void Attack()
     {
-        ((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Attack");
+        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Attack");
+        CharacterPrefabs[selected].GetComponent<Animator>().Play("Attack");
         StartCoroutine(AttackDelay(0.3f));
     }
 
     public void Shield()
     {
-        ((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Shield");
+        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Shield");
+        CharacterPrefabs[selected].GetComponent<Animator>().Play("Shield");
         StartCoroutine(ShieldTime());
     }
 
@@ -137,19 +184,19 @@ public class CharacterController : MonoBehaviour
     void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
         //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_1_t");
-        CharacterPrefabs[temp].GetComponent<Animator>().SetTrigger("Skill_1_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
         StartCoroutine(SkilDelay_1(0.7f));
     }
     void Skill_2()
     {
         //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_2_t");
-        CharacterPrefabs[temp].GetComponent<Animator>().SetTrigger("Skill_2_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
         StartCoroutine(SkilDelay_2(1.0f));
     }
     void Skill_3()
     {
         //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_3_t");
-        CharacterPrefabs[temp].GetComponent<Animator>().SetTrigger("Skill_3_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
         StartCoroutine(SkilDelay_3(5.0f));
     }
 
@@ -162,52 +209,52 @@ public class CharacterController : MonoBehaviour
     IEnumerator AttackDelay(float time)
     {
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        CharacterPrefabs[temp].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        CharacterPrefabs[temp].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
     // 딜레이 부분 하나로 통합 할수있지 않을까?
     IEnumerator SkilDelay_1(float time)
     {
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        CharacterPrefabs[temp].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        CharacterPrefabs[temp].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
     IEnumerator SkilDelay_2(float time)
     {
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        CharacterPrefabs[temp].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        CharacterPrefabs[temp].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
     IEnumerator SkilDelay_3(float time)
     {
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        CharacterPrefabs[temp].transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         //((GameObject)CharacterPrefabs[temp]).transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        CharacterPrefabs[temp].transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
     }
 
     IEnumerator ShieldTime()
     {
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Enemy";
-        CharacterPrefabs[temp].transform.tag = "Enemy";
+        CharacterPrefabs[selected].transform.tag = "Enemy";
         yield return new WaitForSeconds(1.0f);
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Player";
-        CharacterPrefabs[temp].transform.tag = "Player";
+        CharacterPrefabs[selected].transform.tag = "Player";
     }
 
     [System.Serializable]
     public class ButtonControll
     {
-        public GameObject Board;
+        public Button CharacterChangeBtn;
     }
 }
 

@@ -144,7 +144,7 @@ MonoBehaviour:
   CharacterController: {fileID: 1054176021}
   MapEnemyController: {fileID: 506041849}
   characterList:
-  - CharacterPrefab: {fileID: 1239453404214748479, guid: ce0df7df5c783814e97a5c15f9a07348,
+  - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -157,7 +157,7 @@ MonoBehaviour:
     CharacterImage: {fileID: 0}
     SkillImages: []
     Type: 0
-  - CharacterPrefab: {fileID: 1075749819219059394, guid: d3a6989f017f7ae4cbbaa6ebee8d30fc,
+  - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -170,7 +170,7 @@ MonoBehaviour:
     CharacterImage: {fileID: 0}
     SkillImages: []
     Type: 1
-  - CharacterPrefab: {fileID: 3919185758006779578, guid: a0e8bc4bf2022ea4fa7a134c03163256,
+  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -409,8 +409,8 @@ RectTransform:
   m_Father: {fileID: 924403535}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -484,7 +484,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1987,6 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13293f2340a973c4dbadf84bdd2ec2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossHpBar: {fileID: 1650501283}
   map:
   - mapObject: {fileID: 1645626335}
     speed:
@@ -2002,8 +2003,10 @@ MonoBehaviour:
     NormalEnemyCount:
     - 2
     - 2
+    NormalEnemyHp: []
     Boss: {fileID: 2213197291233125993, guid: a05c29b922c8bae439bfc1ee291bad53, type: 3}
     BossDamage: 10
+    BossHp: 0
   - mapObject: {fileID: 127312085}
     speed:
     - 0.9
@@ -2016,8 +2019,10 @@ MonoBehaviour:
     - 10
     NormalEnemyCount:
     - 2
+    NormalEnemyHp: []
     Boss: {fileID: 2213197291233125993, guid: a05c29b922c8bae439bfc1ee291bad53, type: 3}
     BossDamage: 10
+    BossHp: 200
   SpawnPosition: {fileID: 686710258}
 --- !u!1 &547183523
 GameObject:
@@ -3585,10 +3590,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b76708be67737a4d84cbb96e5619b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 496832744}
+  canvas: {fileID: 496832748}
   Btn:
-    Board: {fileID: 2102246748}
+  - CharacterChangeBtn: {fileID: 547183528}
+  - CharacterChangeBtn: {fileID: 1294372719}
+  - CharacterChangeBtn: {fileID: 123845067}
   HpBar: {fileID: 483409669}
+  CharacterPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Hp:
   - 0
   - 0
@@ -4983,7 +4994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1650501283
 RectTransform:
   m_ObjectHideFlags: 0

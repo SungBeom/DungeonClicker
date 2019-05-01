@@ -129,7 +129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5983534079851425025}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8231172688054787665
 BoxCollider2D:
@@ -200,7 +200,6 @@ Transform:
   m_LocalPosition: {x: -2.271, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4188106658140576896}
   - {fileID: 2351050466212506028}
   - {fileID: 8217140968697091794}
   - {fileID: 6486528514060014958}
@@ -353,7 +352,7 @@ Transform:
   m_Children:
   - {fileID: 3685870464838264707}
   m_Father: {fileID: 5983534079851425025}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7698455045953871761
 BoxCollider2D:
@@ -424,7 +423,7 @@ Transform:
   m_Children:
   - {fileID: 7258243914744494}
   m_Father: {fileID: 5983534079851425025}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3972369071998107725
 BoxCollider2D:
@@ -538,57 +537,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &4706125356789850092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4188106658140576896}
-  - component: {fileID: 6537172162998174326}
-  m_Layer: 0
-  m_Name: StatusController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4188106658140576896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4706125356789850092}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7690983, y: 0.5476637, z: -0.11556164}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5983534079851425025}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6537172162998174326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4706125356789850092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e92e3af4f90cfd4ca2edf688ff8a071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  AttackDamage: 0
-  SkilDamage:
-  - 0
-  - 0
-  - 0
-  Hp: 0
-  Reinforcement: 1
 --- !u!1 &4919280383397936125
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5983534079851425025}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &315640957148286358
 BoxCollider2D:
