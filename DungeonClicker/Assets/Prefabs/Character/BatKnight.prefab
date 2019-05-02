@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5289379840449576609}
   - component: {fileID: 650991530354272566}
   - component: {fileID: 6020651785699798504}
+  - component: {fileID: 7258598076383278807}
   m_Layer: 0
   m_Name: Skill_3
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +121,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &7258598076383278807
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355086302625758532}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2509534865648241378
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,9 +503,10 @@ GameObject:
   - component: {fileID: 4500389270810407570}
   - component: {fileID: 1594397039698218454}
   - component: {fileID: 1077558149814029601}
+  - component: {fileID: 7500121104697209407}
   m_Layer: 0
   m_Name: Skill_2
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -540,6 +563,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &7500121104697209407
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448023877906237245}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4625440115230015620
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,9 +595,10 @@ GameObject:
   - component: {fileID: 462095606381618970}
   - component: {fileID: 3079540136781427976}
   - component: {fileID: 6015289840199990798}
+  - component: {fileID: 8812113319951686055}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,6 +655,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &8812113319951686055
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625440115230015620}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5991230367882532966
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,9 +885,10 @@ GameObject:
   - component: {fileID: 2619808191231948242}
   - component: {fileID: 5573416354675371059}
   - component: {fileID: 8415845692528913016}
+  - component: {fileID: 2714014242340738263}
   m_Layer: 0
   m_Name: Skill_1
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -879,3 +946,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &2714014242340738263
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077325798808982642}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

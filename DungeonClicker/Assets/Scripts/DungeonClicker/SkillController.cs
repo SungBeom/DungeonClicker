@@ -5,20 +5,21 @@ using UnityEngine;
 public class SkillController : MonoBehaviour
 {
     static int SkillSelected;
-    float damage;
+    float Damage;
 
     void OnCollisionEnter2D(Collision2D col)
     {
         //damage = DungeonGameManager.Instance.SkilDamage[SkillSelected];
-        damage = DungeonGameManager.Instance.characterList[CharacterController.selected].SkilDamage[SkillSelected];
+        Damage = DungeonGameManager.Instance.characterList[CharacterController.selected].SkilDamage[SkillSelected];
 
         if (col.transform.tag == "Enemy")
         {
-            col.gameObject.GetComponent<EnemyHp>().GainDamage(damage);
+            col.gameObject.GetComponent<EnemyHp>().GainDamage(Damage);
         }
         else if (col.transform.tag == "Boss")
         {
-            DungeonGameManager.Instance.MapEnemyController.GetComponent<MapEnemyController>().BossGetInjured(damage);
+            //DungeonGameManager.Instance.MapEnemyController.GetComponent<MapEnemyController>().BossGetInjured(damage);
+            DungeonGameManager.Instance.BossInjured(Damage);
         }
     }
 

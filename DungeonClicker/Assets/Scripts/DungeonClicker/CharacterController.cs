@@ -15,6 +15,7 @@ public class CharacterController : MonoBehaviour
     public static int selected = 0;
     public static int characterCount;
     public float []Hp;
+    //public bool[] SkillFlag;
     int temp = 0;
 
     delegate void Skill();
@@ -31,12 +32,15 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(CharacterPrefabs.Length);
         ChangeHp();
         for (int i = 0; i < characterCount; i++)  // 던전매니저에서 처음에 정보를 받아오자
         {
+            for(int j =0; j < DungeonGameManager.Instance.characterList[i].SkillFlag.Length; j++)
+            {
+                DungeonGameManager.Instance.characterList[i].SkillFlag[j] = true;
+            }
             go = Instantiate(DungeonGameManager.Instance.characterList[i].CharacterPrefab);
-            go.transform.parent = canvas.transform;
+            go.transform.parent = canvas;
             Hp[i] = DungeonGameManager.Instance.characterList[i].Hp;
             CharacterPrefabs[i] = go;
             go.SetActive(false);
@@ -61,11 +65,6 @@ public class CharacterController : MonoBehaviour
         };*/
     }
 
-    public void DeleteArrayList()
-    {
-        //CharacterPrefabs.RemoveAt(selected);    // 장소를 제거하면 안됨 버튼 위치가 바뀌어 버림
-    }
-
     public void GetInjured(float Damage)
     {
         Hp[selected] -= Damage;
@@ -85,8 +84,7 @@ public class CharacterController : MonoBehaviour
 
     public void Change()
     {
-        //((GameObject)CharacterPrefabs[temp]).SetActive(false);
-        //((GameObject)CharacterPrefabs[selected]).SetActive(true);
+        //CharacterPrefabs[temp].GetComponent<Animator>().SetTrigger("Exit_t");
         CharacterPrefabs[temp].SetActive(false);
         CharacterPrefabs[selected].SetActive(true);
         ChangeHp();
@@ -101,11 +99,6 @@ public class CharacterController : MonoBehaviour
     
     public void DeathChange()
     {
-        //((GameObject)CharacterPrefabs[selected]).GetComponent<BoxCollider2D>().enabled = false;
-        //((GameObject)CharacterPrefabs[selected]).GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
-        //((GameObject)CharacterPrefabs[selected]).GetComponent<Animator>().SetTrigger("Die_t");
-        //DeleteArrayList();
-        //selected = (selected + CharacterPrefabs.Count) % CharacterPrefabs.Count;    // Divide 0 에러 발생 이유를 확인해보아야함
         --characterCount;
         CharacterPrefabs[selected].GetComponent<BoxCollider2D>().enabled = false;
         CharacterPrefabs[selected].GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
@@ -163,15 +156,13 @@ public class CharacterController : MonoBehaviour
     //캐릭터 클래스안에 3개 버튼 스킬 및, 캐릭터 별 내장 스킬을 집어 넣고 인덱스를 통해 접근하여 스킬을 실행시키자
     public void Attack()
     {
-        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Attack");
-        CharacterPrefabs[selected].GetComponent<Animator>().Play("Attack");
-        StartCoroutine(AttackDelay(0.3f));
+        if (DungeonGameManager.Instance.characterList[selected].SkillFlag[0] == true)
+            StartCoroutine(AttackDelay(2.0f));
     }
 
     public void Shield()
     {
-        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().Play("Shield");
-        CharacterPrefabs[selected].GetComponent<Animator>().Play("Shield");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Shield_t");
         StartCoroutine(ShieldTime());
     }
 
@@ -183,65 +174,61 @@ public class CharacterController : MonoBehaviour
     // 델리게이트로 구성하였음
     void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
-        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_1_t");
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
-        StartCoroutine(SkilDelay_1(0.7f));
+        if (DungeonGameManager.Instance.characterList[selected].SkillFlag[1] == true)
+            StartCoroutine(SkilDelay_1(0.7f));
     }
     void Skill_2()
     {
-        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_2_t");
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
-        StartCoroutine(SkilDelay_2(1.0f));
+        if (DungeonGameManager.Instance.characterList[selected].SkillFlag[2] == true)
+            StartCoroutine(SkilDelay_2(1.0f));
     }
     void Skill_3()
     {
-        //((GameObject)CharacterPrefabs[temp]).GetComponent<Animator>().SetTrigger("Skill_3_t");
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
-        StartCoroutine(SkilDelay_3(5.0f));
+        if (DungeonGameManager.Instance.characterList[selected].SkillFlag[3] == true)
+            StartCoroutine(SkilDelay_3(5.0f));
     }
-
-    /*IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(0.3f);        
-        DeathChange();
-    }*/
 
     IEnumerator AttackDelay(float time)
     {
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[0] = false;
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Attack_t");
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[0] = true;
     }
     // 딜레이 부분 하나로 통합 할수있지 않을까?
     IEnumerator SkilDelay_1(float time)
     {
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[1] = false;
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[1] = true;
     }
 
     IEnumerator SkilDelay_2(float time)
     {
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[2] = false;
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[2] = true;
     }
 
     IEnumerator SkilDelay_3(float time)
     {
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[3] = false;
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
-        //((GameObject)CharacterPrefabs[temp]).transform.GetChild(5).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        DungeonGameManager.Instance.characterList[selected].SkillFlag[3] = true;
     }
 
+    // 회피 방식 변경할것
     IEnumerator ShieldTime()
     {
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Enemy";

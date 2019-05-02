@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5565290904306263023}
   - component: {fileID: 5150257097530205561}
   - component: {fileID: 8776801381486361235}
+  - component: {fileID: 5377241933520977025}
   m_Layer: 0
   m_Name: Skill_2
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,6 +72,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &5377241933520977025
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844475250841702294}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1077751835569888514
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,9 +652,10 @@ GameObject:
   - component: {fileID: 1635420752031546691}
   - component: {fileID: 4608743332083775998}
   - component: {fileID: 1156133442480651917}
+  - component: {fileID: 3401669266458266127}
   m_Layer: 0
   m_Name: Weapom
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -689,6 +712,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c39384e70d696b40ba2ec64ad3879f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &3401669266458266127
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305347875951142714}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5426902499315502799
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,9 +843,10 @@ GameObject:
   - component: {fileID: 540077303202554207}
   - component: {fileID: 7381194497459038854}
   - component: {fileID: 745357018220450627}
+  - component: {fileID: 5220109607517514367}
   m_Layer: 0
   m_Name: Skill_3
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,6 +904,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &5220109607517514367
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917598097050422594}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8154293958978267238
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,9 +1035,10 @@ GameObject:
   - component: {fileID: 3717142563118275751}
   - component: {fileID: 8432536899352803284}
   - component: {fileID: 7610815627201669608}
+  - component: {fileID: 259636384204536097}
   m_Layer: 0
   m_Name: Skill_1
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,3 +1096,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d2b3ad7995cb448df79ad1204b31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &259636384204536097
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187571364969797429}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
