@@ -143,58 +143,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cc: {fileID: 1054176023}
   mc: {fileID: 379717237}
-  characterList:
+  characterLists:
   - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
       type: 3}
-    AttackDamage: 100
+    AttackDamage: 50
     SkilDamage:
-    - 20
-    - 30
-    - 40
+    - 50
+    - 100
+    - 150
     Hp: 200
     Reinforcement: 0
     CharacterImage: {fileID: 0}
-    SkillImages:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    SkillImages: []
     Type: 0
     AvoidCount: 0
-    SkillFlag: 01010101
+    SkillFlag: 000000
   - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
-    AttackDamage: 100
+    AttackDamage: 50
     SkilDamage:
-    - 60
-    - 70
-    - 80
-    Hp: 400
+    - 50
+    - 100
+    - 150
+    Hp: 200
     Reinforcement: 0
     CharacterImage: {fileID: 0}
-    SkillImages:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    Type: 1
+    SkillImages: []
+    Type: 0
     AvoidCount: 0
-    SkillFlag: 01010101
+    SkillFlag: 000000
   - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
       type: 3}
-    AttackDamage: 100
+    AttackDamage: 50
     SkilDamage:
     - 100
-    - 110
-    - 500
-    Hp: 600
+    - 150
+    - 200
+    Hp: 200
     Reinforcement: 0
     CharacterImage: {fileID: 0}
-    SkillImages:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    Type: 2
+    SkillImages: []
+    Type: 0
     AvoidCount: 0
-    SkillFlag: 01010101
+    SkillFlag: 000000
   GameOver: {fileID: 1951856647}
   GameClear: {fileID: 1560251633}
 --- !u!4 &23504090
@@ -1124,11 +1115,17 @@ MonoBehaviour:
       EnemyDamage: 20
       NormalEnemyCount: 6
       NormalEnemyHp: 30
+      MoveSpeed: 0
+      DropGold: 0
+      AntiElasticity: 0
     boss:
       BossPrefab: {fileID: 2213197291233125993, guid: a05c29b922c8bae439bfc1ee291bad53,
         type: 3}
       BossDamage: 40
       BossHp: 300
+      MoveSpeed: 0
+      DropGold: 0
+      AntiElasticity: 0
   SpawnPosition: {fileID: 379717235}
 --- !u!1 &381119338
 GameObject:

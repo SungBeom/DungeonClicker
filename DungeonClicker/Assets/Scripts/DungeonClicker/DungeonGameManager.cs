@@ -14,9 +14,11 @@ public class DungeonGameManager : MonoBehaviour
 
     //public GameObject CharacterController;
     //public GameObject MapEnemyController;
-    public CharacterList[] characterList;
+    public CharacterList[] characterLists;
     public GameObject GameOver;
     public GameObject GameClear;
+
+    //GameManager.GBDInfo.infos         // 메인에 통합시 필요
     
     void Awake()
     {
@@ -43,6 +45,7 @@ public class DungeonGameManager : MonoBehaviour
     void Start()
     {
         // 메인에서 선택한 맵에 대한 정보를 받아오는것이 필요
+        //GameManager.CharacterList[] characterList = GameManager.Instance.ThrowDataToDungeon();
     }
 
     // 게임 클리어를 호출하기 위한 메소드

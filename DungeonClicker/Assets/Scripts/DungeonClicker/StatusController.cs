@@ -24,7 +24,7 @@ public class StatusController : MonoBehaviour
     void Start()
     {
         selected = CharacterController.selected;
-        DungeonGameManager.CharacterList infos = DungeonGameManager.Instance.characterList[selected];
+        DungeonGameManager.CharacterList infos = DungeonGameManager.Instance.characterLists[selected];
         ReceiveData(infos);
     }
 

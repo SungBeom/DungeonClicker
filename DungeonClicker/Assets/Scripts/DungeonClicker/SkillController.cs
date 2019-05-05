@@ -10,7 +10,7 @@ public class SkillController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         //damage = DungeonGameManager.Instance.SkilDamage[SkillSelected];
-        Damage = DungeonGameManager.Instance.characterList[CharacterController.selected].SkilDamage[SkillSelected];
+        Damage = DungeonGameManager.Instance.characterLists[CharacterController.selected].SkilDamage[SkillSelected];
 
         if (col.transform.tag == "Enemy")
         {
