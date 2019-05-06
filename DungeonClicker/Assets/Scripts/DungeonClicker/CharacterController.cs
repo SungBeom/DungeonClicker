@@ -104,34 +104,39 @@ public class CharacterController : MonoBehaviour
         CharacterPrefabs[selected].GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Die_t");
         Btn[selected].CharacterChangeBtn.interactable = false;
-        Destroy(CharacterPrefabs[selected].gameObject, 0.5f);
+        //Destroy(CharacterPrefabs[selected].gameObject, 0.5f);
+        DungeonGameManager.Instance.characterLists[selected].life = false;
+        CharacterPrefabs[selected].SetActive(false);
 
         //비효율적인 캐릭터 교체 방식임 캐릭터가 사망시 그 다음차레의 캐릭터로 변경하는 방식으로 변경
         // 자신 인덱스 기준으로 앞에 인덱스를 먼저 체크 앞 배열 인덱스에 캐릭터가 있을경우 교체 없을경우 뒤 인덱스를 체크 
         // 만약 자신이 0번 인덱스일 경우 해당 배열의 마지막 인덱스를 확인 있을 경우 그 캐릭터와 교체 아닐경우 뒤 인덱스를 체크
         // 만약 자신이 마지막 인덱스일 경우 앞에 배열 인덱스 캐릭터의 존재를 체크하고 없으면 해당 배열의 최초 인덱스 체크
+        // 아래에 있는 if-else 문은 임시로써 변경 예정임
 
-        if(characterCount == 0)
+        if (characterCount == 0)
         {
             DungeonGameManager.Instance.CallGameOver();
         }
         else if(selected == 0)
         {
-            if(CharacterPrefabs[(CharacterPrefabs.Length - 1)].gameObject != null)
+            if(DungeonGameManager.Instance.characterLists[2].life != false)
             {
-                CharacterPrefabs[(CharacterPrefabs.Length - 1)].SetActive(true);
-                selected = (CharacterPrefabs.Length - 1);
+                CharacterPrefabs[2].SetActive(true);
+                selected = 2;
             }
             else
             {
-                CharacterPrefabs[++selected].SetActive(true);
+                CharacterPrefabs[1].SetActive(true);
+                selected = 1;
             }
         }
-        else if(selected == (CharacterPrefabs.Length - 1))
+        else if(selected == 2)
         {
-            if(CharacterPrefabs[(selected-1)].gameObject != null)
+            if(DungeonGameManager.Instance.characterLists[1].life != false)
             {
-                CharacterPrefabs[--selected].SetActive(true);
+                CharacterPrefabs[1].SetActive(true);
+                selected = 1;
             }
             else
             {
@@ -141,15 +146,18 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            if(CharacterPrefabs[(selected-1)].gameObject != null)
+            if(DungeonGameManager.Instance.characterLists[0].life != false)
             {
-                CharacterPrefabs[--selected].SetActive(true);
+                CharacterPrefabs[0].SetActive(true);
+                selected = 0;
             }
             else
             {
-                CharacterPrefabs[++selected].SetActive(true);
+                CharacterPrefabs[2].SetActive(true);
+                selected = 2;
             }
         }
+        temp = selected;
         ChangeHp();
     }
 

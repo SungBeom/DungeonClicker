@@ -101,7 +101,7 @@ public class MapEnemyController : MonoBehaviour
             rd[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
         }
         //StartCoroutine(MakeEnemy());
-        ClearPool();
+        //ClearPool();
         MakeEnemy();
         StartCoroutine(PushEnemy());
     }

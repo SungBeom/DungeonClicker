@@ -153,11 +153,12 @@ MonoBehaviour:
     - 150
     Hp: 200
     Reinforcement: 0
+    life: 0
     CharacterImage: {fileID: 0}
     SkillImages: []
     Type: 0
     AvoidCount: 0
-    SkillFlag: 000000
+    SkillFlag: 00000000
   - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
     AttackDamage: 50
@@ -167,11 +168,12 @@ MonoBehaviour:
     - 150
     Hp: 200
     Reinforcement: 0
+    life: 0
     CharacterImage: {fileID: 0}
     SkillImages: []
     Type: 0
     AvoidCount: 0
-    SkillFlag: 000000
+    SkillFlag: 00000000
   - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
       type: 3}
     AttackDamage: 50
@@ -181,11 +183,12 @@ MonoBehaviour:
     - 200
     Hp: 200
     Reinforcement: 0
+    life: 0
     CharacterImage: {fileID: 0}
     SkillImages: []
     Type: 0
     AvoidCount: 0
-    SkillFlag: 000000
+    SkillFlag: 00000000
   GameOver: {fileID: 1951856647}
   GameClear: {fileID: 1560251633}
 --- !u!4 &23504090
