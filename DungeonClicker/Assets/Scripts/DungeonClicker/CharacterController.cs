@@ -21,17 +21,9 @@ public class CharacterController : MonoBehaviour
     delegate void Skill();
     Skill[] skills;
 
-    void Awake()
-    {
-        characterCount = DungeonGameManager.Instance.characterLists.Length;
-        for (int i = 0; i < characterCount; i++)
-        {
-            Hp[i] = DungeonGameManager.Instance.characterLists[i].Hp;
-        }
-    }
-
     void Start()
     {
+        InitHp();
         ChangeHp();
         for (int i = 0; i < characterCount; i++)  // 던전매니저에서 처음에 정보를 받아오자
         {
@@ -63,6 +55,15 @@ public class CharacterController : MonoBehaviour
             new Delay(ShieldTime),
             new Delay(skill)
         };*/
+    }
+
+    void InitHp()
+    {
+        characterCount = 3;
+        for (int i = 0; i < characterCount; i++)
+        {
+            Hp[i] = DungeonGameManager.Instance.characterLists[i].Hp;
+        }
     }
 
     public void GetInjured(float Damage)

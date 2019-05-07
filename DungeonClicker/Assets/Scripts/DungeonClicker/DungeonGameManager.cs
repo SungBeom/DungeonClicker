@@ -18,19 +18,7 @@ public class DungeonGameManager : MonoBehaviour
     public GameObject GameOver;
     public GameObject GameClear;
 
-    //GameManager.GBDInfo.infos         // 메인에 통합시 필요
-    
-    void Awake()
-    {
-        if(instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-
-        DontDestroyOnLoad(gameObject);
-    }
+    //GameManager.GBDInfo.infos         // 메인에 통합시 필요 
 
     public void Injured(float Damage)
     {
@@ -40,6 +28,18 @@ public class DungeonGameManager : MonoBehaviour
     public void BossInjured(float Damage)
     {
         mc.BossGetInjured(Damage);
+    }
+
+    void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+
+        // DontDestroyOnLoad(gameObject);
     }
 
     void Start()
