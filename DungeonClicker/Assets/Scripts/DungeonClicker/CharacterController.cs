@@ -166,7 +166,7 @@ public class CharacterController : MonoBehaviour
     public void Attack()
     {
         if (DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] == true)
-            StartCoroutine(AttackDelay(2.0f));
+            StartCoroutine(AttackDelay(0.2f));
     }
 
     public void Shield()
@@ -202,8 +202,9 @@ public class CharacterController : MonoBehaviour
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Attack_t");
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.2f);
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] = true;
     }
     // 딜레이 부분 하나로 통합 할수있지 않을까?
@@ -212,8 +213,9 @@ public class CharacterController : MonoBehaviour
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[1] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[1] = true;
     }
 
@@ -222,8 +224,9 @@ public class CharacterController : MonoBehaviour
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[2] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[2] = true;
     }
 
@@ -232,8 +235,9 @@ public class CharacterController : MonoBehaviour
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[3] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
         DungeonGameManager.Instance.characterLists[selected].SkillFlag[3] = true;
     }
 

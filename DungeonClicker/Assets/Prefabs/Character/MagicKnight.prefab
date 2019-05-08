@@ -136,7 +136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1 &1239453404214748479
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1 &5961093175540206993
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1 &6805577815858601641
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &7064626206597864944
 GameObject:
   m_ObjectHideFlags: 0
