@@ -23,7 +23,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        InitHp();
+        InitCharacter();
         ChangeHp();
         for (int i = 0; i < characterCount; i++)  // 던전매니저에서 처음에 정보를 받아오자
         {
@@ -57,12 +57,15 @@ public class CharacterController : MonoBehaviour
         };*/
     }
 
-    void InitHp()
+    void InitCharacter()
     {
         characterCount = 3;
         for (int i = 0; i < characterCount; i++)
         {
             Hp[i] = DungeonGameManager.Instance.characterLists[i].Hp;
+            //CharacterPrefabs[i].GetComponent<BoxCollider2D>().enabled = true;
+            Btn[i].CharacterChangeBtn.interactable = true;
+            DungeonGameManager.Instance.characterLists[i].life = true;
         }
     }
 
