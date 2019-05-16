@@ -14,12 +14,13 @@ public class Enemy : MonoBehaviour
     {
         //MapEnemyController 에서 값을 위에 해당하는 값을 받아오는 형식으로 하자
         //MapEnemyController 에서 해당하는 값에 어떻게 접근을 하지?
+        StartCoroutine(Move());
     }
 
-    void Update()
+    /*void Update()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale);
-    }
+    }*/
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -31,6 +32,15 @@ public class Enemy : MonoBehaviour
         else if(col.gameObject.tag == "Weapon")
         {
             GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
+        }
+    }
+
+    IEnumerator Move()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.02f);
+            GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale);
         }
     }
 }
