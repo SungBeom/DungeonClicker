@@ -27,13 +27,13 @@ public class CharacterController : MonoBehaviour
         ChangeHp();
         for (int i = 0; i < characterCount; i++)  // 던전매니저에서 처음에 정보를 받아오자
         {
-            for(int j =0; j < DungeonGameManager.Instance.characterLists[i].SkillFlag.Length; j++)
+            for(int j =0; j < DungeonManager.Instance.characterLists[i].SkillFlag.Length; j++)
             {
-                DungeonGameManager.Instance.characterLists[i].SkillFlag[j] = true;
+                DungeonManager.Instance.characterLists[i].SkillFlag[j] = true;
             }
-            go = Instantiate(DungeonGameManager.Instance.characterLists[i].CharacterPrefab);
+            go = Instantiate(DungeonManager.Instance.characterLists[i].CharacterPrefab);
             go.transform.parent = canvas;
-            Hp[i] = DungeonGameManager.Instance.characterLists[i].Hp;
+            Hp[i] = DungeonManager.Instance.characterLists[i].Hp;
             CharacterPrefabs[i] = go;
             go.SetActive(false);
             //CharacterPrefabs.Add(go);
@@ -62,10 +62,10 @@ public class CharacterController : MonoBehaviour
         characterCount = 3;
         for (int i = 0; i < characterCount; i++)
         {
-            Hp[i] = DungeonGameManager.Instance.characterLists[i].Hp;
+            Hp[i] = DungeonManager.Instance.characterLists[i].Hp;
             //CharacterPrefabs[i].GetComponent<BoxCollider2D>().enabled = true;
             Btn[i].CharacterChangeBtn.interactable = true;
-            DungeonGameManager.Instance.characterLists[i].life = true;
+            DungeonManager.Instance.characterLists[i].life = true;
         }
     }
 
@@ -82,7 +82,7 @@ public class CharacterController : MonoBehaviour
 
     public void ChangeHp()
     {
-        HpBar.GetComponent<Slider>().maxValue = DungeonGameManager.Instance.characterLists[selected].Hp;
+        HpBar.GetComponent<Slider>().maxValue = DungeonManager.Instance.characterLists[selected].Hp;
         HpBar.GetComponent<Slider>().value = Hp[selected];
     }
 
@@ -109,7 +109,7 @@ public class CharacterController : MonoBehaviour
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Die_t");
         Btn[selected].CharacterChangeBtn.interactable = false;
         //Destroy(CharacterPrefabs[selected].gameObject, 0.5f);
-        DungeonGameManager.Instance.characterLists[selected].life = false;
+        DungeonManager.Instance.characterLists[selected].life = false;
         CharacterPrefabs[selected].SetActive(false);
 
         //비효율적인 캐릭터 교체 방식임 캐릭터가 사망시 그 다음차레의 캐릭터로 변경하는 방식으로 변경
@@ -120,11 +120,11 @@ public class CharacterController : MonoBehaviour
 
         if (characterCount == 0)
         {
-            DungeonGameManager.Instance.CallGameOver();
+            DungeonManager.Instance.CallGameOver();
         }
         else if(selected == 0)
         {
-            if(DungeonGameManager.Instance.characterLists[2].life != false)
+            if(DungeonManager.Instance.characterLists[2].life != false)
             {
                 CharacterPrefabs[2].SetActive(true);
                 selected = 2;
@@ -137,7 +137,7 @@ public class CharacterController : MonoBehaviour
         }
         else if(selected == 2)
         {
-            if(DungeonGameManager.Instance.characterLists[1].life != false)
+            if(DungeonManager.Instance.characterLists[1].life != false)
             {
                 CharacterPrefabs[1].SetActive(true);
                 selected = 1;
@@ -150,7 +150,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            if(DungeonGameManager.Instance.characterLists[0].life != false)
+            if(DungeonManager.Instance.characterLists[0].life != false)
             {
                 CharacterPrefabs[0].SetActive(true);
                 selected = 0;
@@ -168,7 +168,7 @@ public class CharacterController : MonoBehaviour
     //캐릭터 클래스안에 3개 버튼 스킬 및, 캐릭터 별 내장 스킬을 집어 넣고 인덱스를 통해 접근하여 스킬을 실행시키자
     public void Attack()
     {
-        if (DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] == true)
+        if (DungeonManager.Instance.characterLists[selected].SkillFlag[0] == true)
             StartCoroutine(AttackDelay(0.2f));
     }
 
@@ -186,62 +186,62 @@ public class CharacterController : MonoBehaviour
     // 델리게이트로 구성하였음
     void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
-        if (DungeonGameManager.Instance.characterLists[selected].SkillFlag[1] == true)
+        if (DungeonManager.Instance.characterLists[selected].SkillFlag[1] == true)
             StartCoroutine(SkilDelay_1(0.7f));
     }
     void Skill_2()
     {
-        if (DungeonGameManager.Instance.characterLists[selected].SkillFlag[2] == true)
+        if (DungeonManager.Instance.characterLists[selected].SkillFlag[2] == true)
             StartCoroutine(SkilDelay_2(1.0f));
     }
     void Skill_3()
     {
-        if (DungeonGameManager.Instance.characterLists[selected].SkillFlag[3] == true)
+        if (DungeonManager.Instance.characterLists[selected].SkillFlag[3] == true)
             StartCoroutine(SkilDelay_3(5.0f));
     }
 
     IEnumerator AttackDelay(float time)
     {
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] = false;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[0] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Attack_t");
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[0] = true;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[0] = true;
     }
     // 딜레이 부분 하나로 통합 할수있지 않을까?
     IEnumerator SkilDelay_1(float time)
     {
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[1] = false;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[1] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[1] = true;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[1] = true;
     }
 
     IEnumerator SkilDelay_2(float time)
     {
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[2] = false;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[2] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[2] = true;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[2] = true;
     }
 
     IEnumerator SkilDelay_3(float time)
     {
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[3] = false;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[3] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
-        DungeonGameManager.Instance.characterLists[selected].SkillFlag[3] = true;
+        DungeonManager.Instance.characterLists[selected].SkillFlag[3] = true;
     }
 
     // 회피 방식 변경할것

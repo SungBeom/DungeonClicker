@@ -24,12 +24,12 @@ public class StatusController : MonoBehaviour
     void Start()
     {
         selected = CharacterController.selected;
-        DungeonGameManager.CharacterList infos = DungeonGameManager.Instance.characterLists[selected];
+        DungeonManager.CharacterList infos = DungeonManager.Instance.characterLists[selected];
         ReceiveData(infos);
     }
 
 
-    public void ReceiveData(DungeonGameManager.CharacterList infos)
+    public void ReceiveData(DungeonManager.CharacterList infos)
     {
         //selected = CharacterController.selected;
         AttackDamage = infos.AttackDamage * Reinforcement;

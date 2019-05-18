@@ -15,7 +15,7 @@ public class EnemyHp : MonoBehaviour
             //DungeonGameManager.Instance.Gold += 10;
             //Destroy(gameObject.transform.root.gameObject);
             gameObject.SetActive(false);
-            DungeonGameManager.Instance.mc.Pool.Enqueue(gameObject);
+            DungeonManager.Instance.mc.Pool.Enqueue(gameObject);
         }
     }
 }

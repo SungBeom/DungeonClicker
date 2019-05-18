@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            DungeonGameManager.Instance.Injured(Damage);
+            DungeonManager.Instance.Injured(Damage);
             GetComponent<Rigidbody2D>().AddForce(transform.right * AntiElasticity);
         }
         else if(col.gameObject.tag == "Weapon")

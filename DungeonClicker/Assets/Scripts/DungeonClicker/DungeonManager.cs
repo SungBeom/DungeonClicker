@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonGameManager : MonoBehaviour
+public class DungeonManager : MonoBehaviour
 {
-    private static DungeonGameManager instance;
-    public static DungeonGameManager Instance {
+    private static DungeonManager instance;
+    public static DungeonManager Instance {
         get { return instance; }
     }
 

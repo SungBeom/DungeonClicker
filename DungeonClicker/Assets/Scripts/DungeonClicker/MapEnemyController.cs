@@ -63,7 +63,7 @@ public class MapEnemyController : MonoBehaviour
         if (map[selected].boss.BossHp <= 0)
         {
             Destroy(BossObject, 0.5f);
-            DungeonGameManager.Instance.CallGameClear();
+            DungeonManager.Instance.CallGameClear();
         }
     }
 

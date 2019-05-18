@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         //damage = gameObject.transform.root.Find("StatusController").GetComponent<StatusController>().AttackDamage;
-        Damage = DungeonGameManager.Instance.characterLists[CharacterController.selected].AttackDamage;
+        Damage = DungeonManager.Instance.characterLists[CharacterController.selected].AttackDamage;
         //Debug.Log(gameObject.transform.root);
         //Debug.Log(damage);
         //float damage = StatusController.Instance.AttackDamage;
@@ -21,7 +21,7 @@ public class WeaponController : MonoBehaviour
         {
             //col.gameObject.transform.Find("Canvas").Find("Health Slider").GetComponent<BossHp>().GainDamage(damage);
             //DungeonGameManager.Instance.MapEnemyController.GetComponent<MapEnemyController>().BossGetInjured(Damage);
-            DungeonGameManager.Instance.BossInjured(Damage);
+            DungeonManager.Instance.BossInjured(Damage);
         }
     }
 }

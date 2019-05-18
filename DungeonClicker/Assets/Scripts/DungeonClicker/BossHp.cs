@@ -22,7 +22,7 @@ public class BossHp : MonoBehaviour
 
         if (hp <= 0)
         {
-            DungeonGameManager.Instance.CallGameClear();
+            DungeonManager.Instance.CallGameClear();
             Destroy(gameObject.transform.root.gameObject, 0.5f);
         }
     }
