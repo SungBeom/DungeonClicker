@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.02f);
-            GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale);
+            GetComponent<Rigidbody2D>().AddForce(transform.right * -Speed * Time.timeScale * 2);
         }
     }
 }

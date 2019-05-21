@@ -41,6 +41,7 @@ public class MapEnemyController : MonoBehaviour
             rd[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
         }
 
+        //StartCoroutine(MoveMap());
         MakeEnemy();
         StartCoroutine(PushEnemy());
     }
@@ -90,18 +91,19 @@ public class MapEnemyController : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("Dungeon");    // 이렇게 할 경우 씬은 불러오나 정지됨 -> 불러오고 나면 매니저의 컨트룰러들이 missing으로 변경됨을 확인하였음
+        //SceneManager.LoadScene("Dungeon");    // 이렇게 할 경우 씬은 불러오나 정지됨 -> 불러오고 나면 매니저의 컨트룰러들이 missing으로 변경됨을 확인하였음
         Time.timeScale = 1.0f;
-        temp = selected;
-        map[temp].mapObject.SetActive(false);
-        map[selected].mapObject.SetActive(true);
+        //temp = selected;
+        //map[temp].mapObject.SetActive(false);
+        //map[selected].mapObject.SetActive(true);
 
-        for (int i = 0; i < 3; i++)
-        {
-            rd[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
-        }
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    rd[i] = map[selected].mapObject.transform.GetChild(i).GetComponent<Renderer>();
+        //}
         //StartCoroutine(MakeEnemy());
-        //ClearPool();
+        // 맵 내부에 남은 몬스터들을 전체 제거해야함
+        ClearPool();
         MakeEnemy();
         StartCoroutine(PushEnemy());
     }
@@ -112,7 +114,7 @@ public class MapEnemyController : MonoBehaviour
     {
         for (int i = 0; i < map[selected].enemy.Length; i++)
         {
-            for (int j = 0; j < (map[selected].enemy[i].NormalEnemyCount)*0.8; j++)
+            for (int j = 0; j < map[selected].enemy[i].NormalEnemyCount; j++)
             {
                 EnemyObject = Instantiate(map[selected].enemy[i].NormalEnemy, SpawnPosition.transform.position, SpawnPosition.transform.rotation);
                 EnemyObject.transform.parent = MonsterPool;
@@ -122,6 +124,7 @@ public class MapEnemyController : MonoBehaviour
         }
     }
 
+    // 필드에 특정 갯수 이상의 몬스터가 있지 않으면 생성하지 말아야 함
     IEnumerator PushEnemy()
     {
         for(int i = 0; i< TotalEnemyCount; i++)
@@ -131,6 +134,16 @@ public class MapEnemyController : MonoBehaviour
             yield return new WaitForSeconds(3.5f);
         }
         MakeBoss();
+    }
+
+    IEnumerator MoveMap()
+    {
+        map[selected].offset = Time.time * map[selected].speed[selected];
+        for (int i = 0; i < map[selected].speed.Length; i++)
+        {
+            rd[i].material.SetTextureOffset("_MainTex", new Vector2(map[selected].offset * map[selected].speed[i], 0));
+        }
+        yield return new WaitForSeconds(0.1f);
     }
 
     // 보스 몬스터 생성 
