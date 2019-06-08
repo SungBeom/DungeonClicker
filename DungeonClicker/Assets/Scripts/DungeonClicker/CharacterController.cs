@@ -197,7 +197,10 @@ public class CharacterController : MonoBehaviour
     void Skill_3()
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[3] == true)
+        {   
+            //원거리 스킬 다른 애니메이터 제어 필요
             StartCoroutine(SkilDelay_3(5.0f));
+        }
     }
 
     IEnumerator AttackDelay(float time)
@@ -214,7 +217,7 @@ public class CharacterController : MonoBehaviour
     IEnumerator SkilDelay_1(float time)
     {
         DungeonManager.Instance.characterLists[selected].SkillFlag[1] = false;
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_1_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill1_t");
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
@@ -225,7 +228,7 @@ public class CharacterController : MonoBehaviour
     IEnumerator SkilDelay_2(float time)
     {
         DungeonManager.Instance.characterLists[selected].SkillFlag[2] = false;
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_2_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill2_t");
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
@@ -236,7 +239,7 @@ public class CharacterController : MonoBehaviour
     IEnumerator SkilDelay_3(float time)
     {
         DungeonManager.Instance.characterLists[selected].SkillFlag[3] = false;
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill_3_t");
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill3_t");
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
