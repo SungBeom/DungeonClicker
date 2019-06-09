@@ -144,7 +144,7 @@ MonoBehaviour:
   cc: {fileID: 1054176023}
   mc: {fileID: 379717237}
   characterLists:
-  - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
+  - CharacterPrefab: {fileID: 970824260562186979, guid: a46738202a1deae438531aec1a38b974,
       type: 3}
     AttackDamage: 100
     SkilDamage:
@@ -159,7 +159,11 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
-  - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
+    Trigger:
+    - 
+    - Shoot1_t
+    - Shoot2_t
+  - CharacterPrefab: {fileID: 3254919463967070632, guid: 28ea0c1ec6f840f41996faf55f15cfdc,
       type: 3}
     AttackDamage: 50
     SkilDamage:
@@ -174,7 +178,8 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
-  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
+    Trigger: []
+  - CharacterPrefab: {fileID: 2041635442616715527, guid: 1e8ce1994cdae0949b3340e71ae2e887,
       type: 3}
     AttackDamage: 50
     SkilDamage:
@@ -189,6 +194,7 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
+    Trigger: []
   GameOver: {fileID: 1951856647}
   GameClear: {fileID: 1560251633}
 --- !u!4 &23504090

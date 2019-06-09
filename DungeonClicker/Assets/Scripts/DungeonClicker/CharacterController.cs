@@ -187,18 +187,35 @@ public class CharacterController : MonoBehaviour
     void Skill_1()    // 스킬 딜레이가 적용되지않는 현상 발견
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[1] == true)
+        {
+            if (DungeonManager.Instance.characterLists[selected].Trigger[0] != "")
+            {
+                CharacterPrefabs[selected].transform.Find("Skill_1").Find("Sprite").GetComponent<Animator>().SetTrigger(DungeonManager.Instance.characterLists[selected].Trigger[0]);
+            }
             StartCoroutine(SkilDelay_1(0.7f));
+        }
     }
     void Skill_2()
     {
+        Debug.Log("들어옴");
+        CharacterPrefabs[selected].transform.Find("Skill_2").Find("Sprite").GetComponent<Animator>().SetTrigger("Shoot1_t");
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[2] == true)
+        {
+            if (DungeonManager.Instance.characterLists[selected].Trigger[1] != "")
+            {
+            }
             StartCoroutine(SkilDelay_2(1.0f));
+        }
     }
     void Skill_3()
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[3] == true)
-        {   
+        {
             //원거리 스킬 다른 애니메이터 제어 필요
+            if (DungeonManager.Instance.characterLists[selected].Trigger[2] != "")
+            {
+                CharacterPrefabs[selected].transform.Find("Skill_3").Find("Sprite").GetComponent<Animator>().SetTrigger(DungeonManager.Instance.characterLists[selected].Trigger[2]);
+            }
             StartCoroutine(SkilDelay_3(5.0f));
         }
     }

@@ -77,6 +77,7 @@ public class DungeonManager : MonoBehaviour
         public int Type;                    // 캐릭터가 해당하는 속성 (ex) 0 = 불. 1 = 물, 2 = 풀
         public int AvoidCount;              // 회피 가능 횟수
         public bool[] SkillFlag;            // 캐릭터 스킬 연속 사용방지 위한 플래그 기본공격, 스킬1~3
+        public string[] Trigger;            // 배열 0번 = Skill1, 배열 1번 = Skill2, 배열 2번 = Skill3
     }
 
     //public float AttackDamage;
