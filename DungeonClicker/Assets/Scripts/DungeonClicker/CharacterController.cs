@@ -174,7 +174,7 @@ public class CharacterController : MonoBehaviour
 
     public void Shield()
     {
-        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Shield_t");
+        //CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Shield_t");
         StartCoroutine(ShieldTime());
     }
 
@@ -188,35 +188,21 @@ public class CharacterController : MonoBehaviour
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[1] == true)
         {
-            if (DungeonManager.Instance.characterLists[selected].Trigger[0] != "")
-            {
-                CharacterPrefabs[selected].transform.Find("Skill_1").Find("Sprite").GetComponent<Animator>().SetTrigger(DungeonManager.Instance.characterLists[selected].Trigger[0]);
-            }
-            StartCoroutine(SkilDelay_1(0.7f));
+            StartCoroutine(SkilDelay_1(0.2f));
         }
     }
     void Skill_2()
     {
-        Debug.Log("들어옴");
-        CharacterPrefabs[selected].transform.Find("Skill_2").Find("Sprite").GetComponent<Animator>().SetTrigger("Shoot1_t");
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[2] == true)
         {
-            if (DungeonManager.Instance.characterLists[selected].Trigger[1] != "")
-            {
-            }
-            StartCoroutine(SkilDelay_2(1.0f));
+            StartCoroutine(SkilDelay_2(0.2f));
         }
     }
     void Skill_3()
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[3] == true)
         {
-            //원거리 스킬 다른 애니메이터 제어 필요
-            if (DungeonManager.Instance.characterLists[selected].Trigger[2] != "")
-            {
-                CharacterPrefabs[selected].transform.Find("Skill_3").Find("Sprite").GetComponent<Animator>().SetTrigger(DungeonManager.Instance.characterLists[selected].Trigger[2]);
-            }
-            StartCoroutine(SkilDelay_3(5.0f));
+            StartCoroutine(SkilDelay_3(0.2f));
         }
     }
 
@@ -225,7 +211,7 @@ public class CharacterController : MonoBehaviour
         DungeonManager.Instance.characterLists[selected].SkillFlag[0] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Attack_t");
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(2f);
         CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
         DungeonManager.Instance.characterLists[selected].SkillFlag[0] = true;
@@ -236,7 +222,7 @@ public class CharacterController : MonoBehaviour
         DungeonManager.Instance.characterLists[selected].SkillFlag[1] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill1_t");
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
         DungeonManager.Instance.characterLists[selected].SkillFlag[1] = true;
@@ -247,7 +233,7 @@ public class CharacterController : MonoBehaviour
         DungeonManager.Instance.characterLists[selected].SkillFlag[2] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill2_t");
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
         DungeonManager.Instance.characterLists[selected].SkillFlag[2] = true;
@@ -258,7 +244,7 @@ public class CharacterController : MonoBehaviour
         DungeonManager.Instance.characterLists[selected].SkillFlag[3] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill3_t");
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
         DungeonManager.Instance.characterLists[selected].SkillFlag[3] = true;
@@ -268,10 +254,13 @@ public class CharacterController : MonoBehaviour
     IEnumerator ShieldTime()
     {
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Enemy";
-        CharacterPrefabs[selected].transform.tag = "Enemy";
+        //CharacterPrefabs[selected].transform.tag = "Enemy";
+        CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Shield_t");
+        CharacterPrefabs[selected].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
         yield return new WaitForSeconds(1.0f);
+        CharacterPrefabs[selected].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Player";
-        CharacterPrefabs[selected].transform.tag = "Player";
+        //CharacterPrefabs[selected].transform.tag = "Player";
     }
 
     [System.Serializable]

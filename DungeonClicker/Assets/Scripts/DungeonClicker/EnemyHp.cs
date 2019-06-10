@@ -9,9 +9,9 @@ public class EnemyHp : MonoBehaviour
     public void GainDamage(float damage)
     {
         hp -= damage;
-
         if (hp <= 0)
         {
+            Debug.Log(hp);
             //DungeonGameManager.Instance.Gold += 10;
             //Destroy(gameObject.transform.root.gameObject);
             gameObject.SetActive(false);

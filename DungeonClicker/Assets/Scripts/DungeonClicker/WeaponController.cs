@@ -15,6 +15,7 @@ public class WeaponController : MonoBehaviour
         //float damage = StatusController.Instance.AttackDamage;
         if (col.transform.tag == "Enemy")
         {
+            //Debug.Log("때려서 충돌");
             col.gameObject.GetComponent<EnemyHp>().GainDamage(Damage);
         }
         else if(col.transform.tag == "Boss")

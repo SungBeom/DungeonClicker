@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 50
-  Hp: 30
+  Hp: 1000
   Speed: 6
   Gold: 0
   AntiElasticity: 500

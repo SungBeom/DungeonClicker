@@ -144,14 +144,14 @@ MonoBehaviour:
   cc: {fileID: 1054176023}
   mc: {fileID: 379717237}
   characterLists:
-  - CharacterPrefab: {fileID: 970824260562186979, guid: a46738202a1deae438531aec1a38b974,
+  - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
       type: 3}
     AttackDamage: 100
     SkilDamage:
-    - 50
     - 100
-    - 150
-    Hp: 200
+    - 100
+    - 100
+    Hp: 20000
     Reinforcement: 0
     life: 0
     CharacterImage: {fileID: 0}
@@ -163,9 +163,9 @@ MonoBehaviour:
     - 
     - Shoot1_t
     - Shoot2_t
-  - CharacterPrefab: {fileID: 3254919463967070632, guid: 28ea0c1ec6f840f41996faf55f15cfdc,
+  - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
-    AttackDamage: 50
+    AttackDamage: 1
     SkilDamage:
     - 50
     - 100
@@ -179,7 +179,7 @@ MonoBehaviour:
     AvoidCount: 0
     SkillFlag: 00000000
     Trigger: []
-  - CharacterPrefab: {fileID: 2041635442616715527, guid: 1e8ce1994cdae0949b3340e71ae2e887,
+  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
       type: 3}
     AttackDamage: 50
     SkilDamage:
