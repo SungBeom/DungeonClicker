@@ -5,52 +5,54 @@ using UnityEngine.UI;
 
 public class MapController : MonoBehaviour
 {
-    public int SubStage;    // 현재 셀렉트 스테이지를 알기 위한 값
-    public int Difficulty;  // 1 = 노멀, 2 = 하드
-    public MapControll mapController;
-    public Material[] material;
+    public int mainMap = 1;
+    public int subStage = 3;    // 현재 셀렉트 스테이지를 알기 위한 값
+    public int difficulty;  // 1 = 노멀, 2 = 하드
+    public MapControll[] mapController;
     public GameObject[] rd;
-    private Renderer[] mapRenders;
+    public GameObject stagePanel;
+    float[] targetOffset;
 
     void Start()
     {
-        mapRenders = new Renderer[rd.Length];
-        for(int i = 0; i < rd.Length; i++)
-        {
-            mapRenders[i] = rd[i].GetComponent<Renderer>();
-        }
+        targetOffset = new float[3];
+        StartCoroutine("ShowPanel");
+        MoveMap(mainMap);
     }
 
     void Update()
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector2 speed = new Vector2(mapController.offset * mapController.speed[i], 0);
-            mapRenders[i].material.mainTextureOffset = speed;
+            targetOffset[i] += Time.deltaTime * mapController[i].speed[i];
+            //Vector2 speed = new Vector2(mapController.offset * mapController.speed[i], 0);
+            //mapRenders[i].material.mainTextureOffset = new Vector2(targetOffset[i],0);
+            //rd[i].GetComponent<Material>().mainTextureOffset = new Vector2(targetOffset[i], 0);
+            rd[i].GetComponent<Image>().material.mainTextureOffset = new Vector2(targetOffset[i], 0);
             //rd[i].material.SetTextureOffset("_MainTex", new Vector2(mapController.offset * mapController.speed[i], 0));
         }
     }
 
     public void MoveMap(int mainMapSelected)
     {
-        int a = 0;
-        int i = mainMapSelected;
-        int j = i;
-        for(i = (mainMapSelected/3); i<(j+3); i++)
+        for(int i = 0; i < 3; i++)
         {
-            //rd[a] = material[i];
-            //mapController.map.transform.GetChild(a).GetComponent<Material>() = mapController.mapImage[i];
-            //mapController.mapImage[i]
-            a++;
+            rd[i].GetComponent<Image>().material = mapController[mainMapSelected].mapMaterial[i];   // 스프라이트 말고 그냥 마테리얼들을 등록해놓고 변경하면 어떨까?
         }
+    }
+
+    IEnumerator ShowPanel()
+    {
+        stagePanel.SetActive(true);
+        stagePanel.GetComponent<Text>().text = "Stage " + (mainMap + 1).ToString() + "- " + (subStage + 1).ToString();
+        yield return new WaitForSeconds(2.0f);
+        stagePanel.SetActive(false);
     }
 
     [System.Serializable]
     public class MapControll
     {
-        public GameObject map;
         public float[] speed;
-        public float offset;
-        public Sprite[] mapImage;
+        public Material[] mapMaterial;
     }
 }

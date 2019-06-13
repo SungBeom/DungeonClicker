@@ -17,6 +17,8 @@ public class DungeonManager : MonoBehaviour
     public CharacterList[] characterLists;
     public GameObject GameOver;
     public GameObject GameClear;
+    public int mainMapSelected;
+    public int subStage;
 
     //GameManager.GBDInfo.infos         // 메인에 통합시 필요 
 
