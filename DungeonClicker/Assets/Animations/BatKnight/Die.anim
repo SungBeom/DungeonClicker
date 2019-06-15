@@ -32,7 +32,7 @@ AnimationClip:
     - time: 1
       value: {fileID: 21300000, guid: e14c831bf278a4845825d3b5ab791b15, type: 3}
     attribute: m_Sprite
-    path: 
+    path: BatKnightCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -43,7 +43,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 1132761536
       attribute: 0
       script: {fileID: 0}
       typeID: 212

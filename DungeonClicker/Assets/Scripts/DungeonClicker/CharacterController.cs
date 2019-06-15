@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
     public float []Hp;
     //public bool[] SkillFlag;
     int temp = 0;
+    //int skillCheck;
 
     delegate void Skill();
     Skill[] skills;
@@ -35,12 +36,12 @@ public class CharacterController : MonoBehaviour
             go.transform.parent = canvas;
             Hp[i] = DungeonManager.Instance.characterLists[i].Hp;
             CharacterPrefabs[i] = go;
-            go.SetActive(false);
+            go.transform.GetChild(5).gameObject.SetActive(false);
             //CharacterPrefabs.Add(go);
         }
 
         //((GameObject)CharacterPrefabs[selected]).SetActive(true);
-        CharacterPrefabs[selected].SetActive(true);
+        CharacterPrefabs[selected].transform.GetChild(5).gameObject.SetActive(true);
 
         skills = new Skill[]
         {
@@ -89,8 +90,8 @@ public class CharacterController : MonoBehaviour
     public void Change()
     {
         //CharacterPrefabs[temp].GetComponent<Animator>().SetTrigger("Exit_t");
-        CharacterPrefabs[temp].SetActive(false);
-        CharacterPrefabs[selected].SetActive(true);
+        CharacterPrefabs[temp].transform.GetChild(5).gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.GetChild(5).gameObject.SetActive(true);
         ChangeHp();
         temp = selected;
     }
@@ -188,21 +189,21 @@ public class CharacterController : MonoBehaviour
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[1] == true)
         {
-            StartCoroutine(SkilDelay_1(0.2f));
+            StartCoroutine(SkilDelay_1(5f));
         }
     }
     void Skill_2()
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[2] == true)
         {
-            StartCoroutine(SkilDelay_2(0.2f));
+            StartCoroutine(SkilDelay_2(5f));
         }
     }
     void Skill_3()
     {
         if (DungeonManager.Instance.characterLists[selected].SkillFlag[3] == true)
         {
-            StartCoroutine(SkilDelay_3(0.2f));
+            StartCoroutine(SkilDelay_3(5f));
         }
     }
 
@@ -210,9 +211,9 @@ public class CharacterController : MonoBehaviour
     {
         DungeonManager.Instance.characterLists[selected].SkillFlag[0] = false;
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Attack_t");
-        CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.Find("Weapon").gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        //CharacterPrefabs[selected].transform.GetChild(0).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.Find("Weapon").gameObject.SetActive(false);
         //yield return new WaitForSeconds(time);
         DungeonManager.Instance.characterLists[selected].SkillFlag[0] = true;
     }
@@ -220,34 +221,49 @@ public class CharacterController : MonoBehaviour
     IEnumerator SkilDelay_1(float time)
     {
         DungeonManager.Instance.characterLists[selected].SkillFlag[1] = false;
+        //StartCoroutine(CoolTime(1, time));
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill1_t");
-        CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.Find("Skill_1").gameObject.SetActive(true);
+        Debug.Log("체크 1");
         yield return new WaitForSeconds(1f);
-        //CharacterPrefabs[selected].transform.GetChild(1).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        Debug.Log("체크 2");
+        CharacterPrefabs[selected].transform.Find("Skill_1").gameObject.SetActive(false);
+        Debug.Log("체크 3");
+        yield return new WaitForSeconds(time-1);
+        Debug.Log("체크 4");
+
         //yield return new WaitForSeconds(time);
+        Debug.Log(DungeonManager.Instance.characterLists[selected].SkillFlag[1]);
         DungeonManager.Instance.characterLists[selected].SkillFlag[1] = true;
+        Debug.Log(DungeonManager.Instance.characterLists[selected].SkillFlag[1]);
     }
 
     IEnumerator SkilDelay_2(float time)
     {
-        DungeonManager.Instance.characterLists[selected].SkillFlag[2] = false;
+        //DungeonManager.Instance.characterLists[selected].SkillFlag[2] = false;
+        StartCoroutine(CoolTime(2, time));
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill2_t");
-        CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.Find("Skill_2").gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        //CharacterPrefabs[selected].transform.GetChild(2).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.Find("Skill_2").gameObject.SetActive(false);
         //yield return new WaitForSeconds(time);
-        DungeonManager.Instance.characterLists[selected].SkillFlag[2] = true;
+        //DungeonManager.Instance.characterLists[selected].SkillFlag[2] = true;
     }
 
     IEnumerator SkilDelay_3(float time)
     {
-        DungeonManager.Instance.characterLists[selected].SkillFlag[3] = false;
+        //DungeonManager.Instance.characterLists[selected].SkillFlag[3] = false;
+        StartCoroutine(CoolTime(3, time));
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Skill3_t");
-        CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.Find("Skill_3").gameObject.SetActive(true);
+        // 투사체 혹은 오브젝트에 충돌이 일어났는지 체크가 필요함
+        // 충돌시 바로 오브젝트가 setActive(false)가 됨 -> 해당 오브젝트 내부에서 판단
+        // 충돌이 없을시 정해진 시간후 사라짐
+        // 충돌한 스킬이 단일스킬인지 아닌지의 체크도 필요함 -> 해당 오브젝트 내부에서 판단
+
         yield return new WaitForSeconds(1f);
-        //CharacterPrefabs[selected].transform.GetChild(3).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
-        //yield return new WaitForSeconds(time);
-        DungeonManager.Instance.characterLists[selected].SkillFlag[3] = true;
+        CharacterPrefabs[selected].transform.Find("Skill_3").gameObject.SetActive(false);
+        //DungeonManager.Instance.characterLists[selected].SkillFlag[3] = true;
     }
 
     // 회피 방식 변경할것
@@ -256,11 +272,19 @@ public class CharacterController : MonoBehaviour
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Enemy";
         //CharacterPrefabs[selected].transform.tag = "Enemy";
         CharacterPrefabs[selected].GetComponent<Animator>().SetTrigger("Shield_t");
-        CharacterPrefabs[selected].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(true);
+        CharacterPrefabs[selected].transform.Find("Shield").gameObject.SetActive(true);
         yield return new WaitForSeconds(1.0f);
-        CharacterPrefabs[selected].transform.GetChild(4).GetComponent<BoxCollider2D>().gameObject.SetActive(false);
+        CharacterPrefabs[selected].transform.Find("Shield").gameObject.SetActive(false);
         //((GameObject)CharacterPrefabs[temp]).transform.tag = "Player";
         //CharacterPrefabs[selected].transform.tag = "Player";
+    }
+
+    IEnumerator CoolTime(int index,float time)  // 일단 미사용
+    {
+        DungeonManager.Instance.characterLists[selected].SkillFlag[index] = false;
+        yield return new WaitForSeconds(time);
+        Debug.Log("탈출");
+        DungeonManager.Instance.characterLists[selected].SkillFlag[index] = true;
     }
 
     [System.Serializable]

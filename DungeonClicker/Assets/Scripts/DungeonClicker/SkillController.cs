@@ -6,20 +6,39 @@ public class SkillController : MonoBehaviour
 {
     static int SkillSelected;
     float Damage;
+    int skillCheck;
 
     void OnCollisionEnter2D(Collision2D col)
     {
         //damage = DungeonGameManager.Instance.SkilDamage[SkillSelected];
         Damage = DungeonManager.Instance.characterLists[CharacterController.selected].SkilDamage[SkillSelected];
+        skillCheck = DungeonManager.Instance.characterLists[CharacterController.selected].SkillCheck[int.Parse(name.Substring(name.Length - 1)) - 1];
 
-        if (col.transform.tag == "Enemy")
+        if (skillCheck == 0)
         {
-            col.gameObject.GetComponent<EnemyHp>().GainDamage(Damage);
+            if (col.transform.tag == "Enemy")
+            {
+                Debug.Log("단일 기술");
+                col.gameObject.GetComponent<EnemyHp>().GainDamage(Damage);
+                gameObject.SetActive(false);
+            }
+            else if (col.transform.tag == "Boss")
+            {
+                DungeonManager.Instance.BossInjured(Damage);
+                gameObject.SetActive(false);
+            }
         }
-        else if (col.transform.tag == "Boss")
+        else
         {
-            //DungeonGameManager.Instance.MapEnemyController.GetComponent<MapEnemyController>().BossGetInjured(damage);
-            DungeonManager.Instance.BossInjured(Damage);
+            if (col.transform.tag == "Enemy")
+            {
+                Debug.Log("범위 기술");
+                col.gameObject.GetComponent<EnemyHp>().GainDamage(Damage);
+            }
+            else if (col.transform.tag == "Boss")
+            {
+                DungeonManager.Instance.BossInjured(Damage);
+            }
         }
     }
 

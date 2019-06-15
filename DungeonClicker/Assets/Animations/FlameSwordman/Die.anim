@@ -22,7 +22,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: 1172ce0a22d325f4f903960e56cffa4c, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 1172ce0a22d325f4f903960e56cffa4c, type: 3}
+      value: {fileID: 21300000, guid: b76fbc439696373408d004123535cedc, type: 3}
     - time: 0.4
       value: {fileID: 21300000, guid: 56f383488fc2dca46920be1a9ef513e8, type: 3}
     - time: 0.6
@@ -32,7 +32,7 @@ AnimationClip:
     - time: 1
       value: {fileID: 21300000, guid: 2009d5063430b1a4cbeee57c6dcef1a9, type: 3}
     attribute: m_Sprite
-    path: 
+    path: FlameSwordmanCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -43,7 +43,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2795855479
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -51,7 +51,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 1172ce0a22d325f4f903960e56cffa4c, type: 3}
-    - {fileID: 21300000, guid: 1172ce0a22d325f4f903960e56cffa4c, type: 3}
+    - {fileID: 21300000, guid: b76fbc439696373408d004123535cedc, type: 3}
     - {fileID: 21300000, guid: 56f383488fc2dca46920be1a9ef513e8, type: 3}
     - {fileID: 21300000, guid: cd912c158c532084d9ac4847b185b976, type: 3}
     - {fileID: 21300000, guid: d3626dcd9fa90494da9172047749e3ca, type: 3}

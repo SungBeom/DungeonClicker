@@ -31,24 +31,24 @@ AnimationClip:
       value: {fileID: 21300000, guid: 596a4d005cc3db24694ae04169f1d20e, type: 3}
     - time: 0.38333333
       value: {fileID: 21300000, guid: 28c7ffc76f49b1849b2058cac4cafd47, type: 3}
-    - time: 0.45
-      value: {fileID: 21300000, guid: 12a7b8914b6b0f14eacdf8c512ccb8b3, type: 3}
+    - time: 0.46666667
+      value: {fileID: 21300000, guid: 2b2144273060a4f49b7e900a9b464f9e, type: 3}
     - time: 0.53333336
       value: {fileID: 21300000, guid: 6a13a3e428aae8843b24d6b8c494f138, type: 3}
-    - time: 0.6
+    - time: 0.6166667
       value: {fileID: 21300000, guid: 920ba7f508c331a4a9042e4d654667e6, type: 3}
-    - time: 0.68333334
+    - time: 0.7
       value: {fileID: 21300000, guid: fc9b3d35d10c20541a60030794db44ee, type: 3}
-    - time: 0.75
+    - time: 0.76666665
       value: {fileID: 21300000, guid: 217b4d196879ec749a0361ff94d0d4c9, type: 3}
-    - time: 0.8333333
+    - time: 0.85
       value: {fileID: 21300000, guid: be7b406cf3f7d6e419e343a005e76c76, type: 3}
     - time: 0.9166667
       value: {fileID: 21300000, guid: 9a9b412d8d64e6540bb5c71ee296e3ff, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 11f07a1cd799ddd4cb73d3e39947b47a, type: 3}
     attribute: m_Sprite
-    path: 
+    path: AxeWarriorCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -59,7 +59,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 1974825759
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -72,7 +72,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 0015d76b9b8fddb4cbe8aefb343fe36f, type: 3}
     - {fileID: 21300000, guid: 596a4d005cc3db24694ae04169f1d20e, type: 3}
     - {fileID: 21300000, guid: 28c7ffc76f49b1849b2058cac4cafd47, type: 3}
-    - {fileID: 21300000, guid: 12a7b8914b6b0f14eacdf8c512ccb8b3, type: 3}
+    - {fileID: 21300000, guid: 2b2144273060a4f49b7e900a9b464f9e, type: 3}
     - {fileID: 21300000, guid: 6a13a3e428aae8843b24d6b8c494f138, type: 3}
     - {fileID: 21300000, guid: 920ba7f508c331a4a9042e4d654667e6, type: 3}
     - {fileID: 21300000, guid: fc9b3d35d10c20541a60030794db44ee, type: 3}

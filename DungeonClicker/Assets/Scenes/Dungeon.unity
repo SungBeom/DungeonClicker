@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 23504090}
   - component: {fileID: 23504089}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: DungeonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,10 +159,7 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
-    Trigger:
-    - 
-    - Shoot1_t
-    - Shoot2_t
+    SkillCheck: 000000000000000001000000
   - CharacterPrefab: {fileID: 3202967177191500885, guid: bc87dae7717f43d4aa132e7c0c3dd459,
       type: 3}
     AttackDamage: 1
@@ -170,7 +167,7 @@ MonoBehaviour:
     - 50
     - 100
     - 150
-    Hp: 200
+    Hp: 20000
     Reinforcement: 0
     life: 0
     CharacterImage: {fileID: 0}
@@ -178,15 +175,15 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
-    Trigger: []
-  - CharacterPrefab: {fileID: 1696623463519560526, guid: ba1d909fd36f138499a1f3550fac8b4b,
+    SkillCheck: 000000000000000000000000
+  - CharacterPrefab: {fileID: 1963813105523098251, guid: 6f84924f7ad1b97499087f559c40b68b,
       type: 3}
     AttackDamage: 50
     SkilDamage:
     - 100
     - 150
     - 200
-    Hp: 200
+    Hp: 20000
     Reinforcement: 0
     life: 0
     CharacterImage: {fileID: 0}
@@ -194,7 +191,7 @@ MonoBehaviour:
     Type: 0
     AvoidCount: 0
     SkillFlag: 00000000
-    Trigger: []
+    SkillCheck: 
   GameOver: {fileID: 1951856647}
   GameClear: {fileID: 1560251633}
   mainMapSelected: 0
@@ -3803,9 +3800,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Hp:
-  - 0
-  - 0
-  - 0
+  - 20
+  - 20000
+  - 20000
 --- !u!1 &1054860237
 GameObject:
   m_ObjectHideFlags: 0
