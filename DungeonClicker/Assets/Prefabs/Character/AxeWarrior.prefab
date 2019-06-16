@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 551761003878658562}
-  - {fileID: 2078535109964713375}
+  - {fileID: 7020911076979050088}
   - {fileID: 4487607576073551386}
   - {fileID: 4142251490655073078}
   - {fileID: 8767475705992583388}
@@ -64,19 +64,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078535109964713375}
+  - component: {fileID: 7020911076979050088}
   - component: {fileID: 2705186772329257444}
   - component: {fileID: 7336159628455802}
   - component: {fileID: 1847422063389392837}
   - component: {fileID: 3031549203165767318}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Skill_1
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &2078535109964713375
+--- !u!4 &7020911076979050088
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

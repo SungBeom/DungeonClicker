@@ -21,22 +21,22 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 88801863deed2484f9dbe87c6815c42a, type: 3}
-    - time: 0.13333334
+    - time: 0.15
       value: {fileID: 21300000, guid: 2d1798da4a916784cb475704ad37b356, type: 3}
     - time: 0.28333333
       value: {fileID: 21300000, guid: bb7ad6976f8991347a9596c976aa57b9, type: 3}
-    - time: 0.41666666
+    - time: 0.43333334
       value: {fileID: 21300000, guid: a4a36ed5501627d4e855020e6a0b4c10, type: 3}
     - time: 0.56666666
       value: {fileID: 21300000, guid: a2bc26de96d86154bb0fa35d6ce32ff7, type: 3}
-    - time: 0.7
+    - time: 0.71666664
       value: {fileID: 21300000, guid: d0e11116f3e171e4299db81703a8e1fe, type: 3}
     - time: 0.85
       value: {fileID: 21300000, guid: f03af8ca7c3cea747b78f0c249a5d62c, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 47af0c30cdf1fc843a77d80086a18ffe, type: 3}
     attribute: m_Sprite
-    path: 
+    path: WaterBattleMageCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 3644660051
       attribute: 0
       script: {fileID: 0}
       typeID: 212

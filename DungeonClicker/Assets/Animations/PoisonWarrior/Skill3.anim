@@ -99,17 +99,6 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 063b891b93a92d14f8ba0ed0a24a0be1, type: 3}
-    - time: 0.28333333
-      value: {fileID: 21300000, guid: 4eb8b06adf663b143888c5fe9d524976, type: 3}
-    - time: 0.56666666
-      value: {fileID: 21300000, guid: 8101c9b9e9cde93459d773011c4fa4fd, type: 3}
-    attribute: m_Sprite
-    path: 
-    classID: 212
-    script: {fileID: 0}
-  - curve:
-    - time: 0
       value: {fileID: 21300000, guid: df522191509524b4bb88f54bedefe2ab, type: 3}
     - time: 0.13333334
       value: {fileID: 21300000, guid: e929ef0d9933d134f8baa7dfb1e7a136, type: 3}
@@ -127,6 +116,17 @@ AnimationClip:
     path: Skill_3
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 063b891b93a92d14f8ba0ed0a24a0be1, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: 4eb8b06adf663b143888c5fe9d524976, type: 3}
+    - time: 1
+      value: {fileID: 21300000, guid: 8101c9b9e9cde93459d773011c4fa4fd, type: 3}
+    attribute: m_Sprite
+    path: PoisonWarriorCharacter
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -142,23 +142,20 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
       path: 3415121027
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2816250225
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 063b891b93a92d14f8ba0ed0a24a0be1, type: 3}
-    - {fileID: 21300000, guid: 4eb8b06adf663b143888c5fe9d524976, type: 3}
-    - {fileID: 21300000, guid: 8101c9b9e9cde93459d773011c4fa4fd, type: 3}
     - {fileID: 21300000, guid: df522191509524b4bb88f54bedefe2ab, type: 3}
     - {fileID: 21300000, guid: e929ef0d9933d134f8baa7dfb1e7a136, type: 3}
     - {fileID: 21300000, guid: 62913de21aa04be4f91cc7f441e78491, type: 3}
@@ -166,6 +163,9 @@ AnimationClip:
     - {fileID: 21300000, guid: f3ea6ac2e4691e1408cbb1462628476b, type: 3}
     - {fileID: 21300000, guid: 779d9e19438ea3c4cb209d4cafd69385, type: 3}
     - {fileID: 21300000, guid: 8ce2d1c1a7bb46e4f9e40b64b91a4a11, type: 3}
+    - {fileID: 21300000, guid: 063b891b93a92d14f8ba0ed0a24a0be1, type: 3}
+    - {fileID: 21300000, guid: 4eb8b06adf663b143888c5fe9d524976, type: 3}
+    - {fileID: 21300000, guid: 8101c9b9e9cde93459d773011c4fa4fd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

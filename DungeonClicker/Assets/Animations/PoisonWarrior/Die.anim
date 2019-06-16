@@ -21,22 +21,22 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: de46baf7065d4f843a640b1bc42eee92, type: 3}
-    - time: 0.13333334
+    - time: 0.15
       value: {fileID: 21300000, guid: cd5c0c11f6e3db944bb5e4b6f65f2026, type: 3}
     - time: 0.28333333
       value: {fileID: 21300000, guid: 39dd3daa769600244b635e2634f1356e, type: 3}
-    - time: 0.41666666
+    - time: 0.43333334
       value: {fileID: 21300000, guid: 1f0a649ce6f2cd946b702f8bd6d9daaf, type: 3}
     - time: 0.56666666
       value: {fileID: 21300000, guid: 6e668f027fb1a8c4d939b1c5bda46778, type: 3}
-    - time: 0.7
+    - time: 0.71666664
       value: {fileID: 21300000, guid: 3abf273ffca92b54a9b56a502932d09e, type: 3}
     - time: 0.85
       value: {fileID: 21300000, guid: e613a88c2b7c22b43a79316fb5078217, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 3640efb60cb859f49b9ca8994805ce6d, type: 3}
     attribute: m_Sprite
-    path: 
+    path: PoisonWarriorCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2816250225
       attribute: 0
       script: {fileID: 0}
       typeID: 212

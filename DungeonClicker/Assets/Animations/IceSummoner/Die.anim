@@ -32,7 +32,7 @@ AnimationClip:
     - time: 1
       value: {fileID: 21300000, guid: c6097adafb2216c48a6c80d80b558966, type: 3}
     attribute: m_Sprite
-    path: 
+    path: IceSummonerCharacter
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -43,7 +43,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 4236417865
       attribute: 0
       script: {fileID: 0}
       typeID: 212
